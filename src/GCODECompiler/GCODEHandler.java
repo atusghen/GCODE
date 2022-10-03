@@ -104,6 +104,18 @@ public class GCODEHandler {
 		errorList.add(st); 
 	}
 	
+	public String createMovement (Token g, Token x, Token y) {
+		if (g != null && x != null && y != null) {
+			return g.getText() + ";" + x.getText() + ";" + y.getText();
+		}
+		return null;
+	}
+	
+	public void addMovement (List<String> list, String pd) {
+		System.out.println(pd);
+		list.add(pd);
+	}
+	
 	//tutti questi metodi possono lanciare errore semantico una volta completata la lettura del token
 	public void stampa (Token T)
 	{

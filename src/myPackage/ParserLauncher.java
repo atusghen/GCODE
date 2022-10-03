@@ -16,7 +16,7 @@ public class ParserLauncher {
 		
 		FileReader fileIn = new FileReader (fileName);
 		GCODEParser parser = new GCODEParser(fileIn);
-		parser.config();
+		parser.gcode();
 		
 		//**
 		if (parser.getErrorList().size() == 0)

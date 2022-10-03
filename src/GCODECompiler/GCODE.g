@@ -69,32 +69,35 @@ M05 M09 M30 (exit)
 */
 
 // Parser definition
-gcode 
-	:	config gcommall	exit	
+gcode returns [List<String> p]
+	:	config x=gcommall{p=x;}	exit	
 	;
 
 config
 	:	GCODESCOORD TCODES MCODES (GCODESF GCODESS FCODES SCODES)? MCODES*
 	;
 
-gcommall
-	:	gcommcoordfast (gcommcoordnoint | gcommcoordint)+
+gcommall returns [List<String> listMove]
+@init { listMove = new ArrayList<String>();}
+	:	mv=gcommcoordfast {h.addMovement (listMove, mv);}
+		(gcommcoordnoint 
+		| gcommcoordint)+
 	;
 	
 exit
 	:	gcommcoordfast MCODES+
 	;
 	
-gcommcoordfast
-	:	GCODESFAST (XCOORD YCOORD ZCOORD?)
+gcommcoordfast returns [String mv]
+	:	g=GCODESFAST (x=XCOORD y=YCOORD) {mv = h.createMovement ($g, $x, $y);}
 	;
 
 gcommcoordnoint
-	:	GCODESINT (XCOORD YCOORD ZCOORD?)
+	:	GCODESINT (XCOORD YCOORD)
 	;
 	
 gcommcoordint
-	:	GCODESINTCIRC (XCOORD YCOORD ZCOORD?) (ICOORD JCOORD)
+	:	GCODESINTCIRC (XCOORD YCOORD) (ICOORD JCOORD)
 	;
 	
 //Lexer definition
@@ -143,10 +146,6 @@ XCOORD
 	
 YCOORD
 	:	'Y' (ADD | SUB)? INT
-	;
-	
-ZCOORD
-	:	'Z' (ADD | SUB)? INT
 	;
 
 ICOORD
