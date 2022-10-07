@@ -70,30 +70,41 @@ M05 M09 M30 (exit)
 
 // Parser definition
 gcode returns [List<String> p]
-	:	config x=gcommall{p=x;}	exit	
+	//:	(uno=config x=gcommall)+ due=exit	{c=uno; p=x; e=due;}
+	:	(uno=config x=gcommall exit) {x=p; h.printConfig(uno);}
 	;
 
-config
-	:	GCODESCOORD TCODES MCODES (GCODESF GCODESS FCODES SCODES)? MCODES*
+config returns [List<Token> s]
+@init { s = new ArrayList<Token>();}
+	:	a=GCODESCOORD b=TCODES c=MCODES d=otherconfig?  e=MCODES*
+	{s.add(a); s.add(b); s.add(c); if(d!=null){s.addAll(d);} if(e!=null){s.add(e);}}
 	;
+//questo perchè ogni lexerule deve corrispondere a una variabile per arrivare al java
+//non va bene se faccio a=(GCODESF GCODESS FCODES SCODES)
+otherconfig returns[List<Token> s]
+@init { s = new ArrayList<Token>();}
+	:
+		a=GCODESF b=GCODESS c=FCODES d=SCODES
+	{s.add($a); s.add($b); s.add($c); s.add($d);}
+	;
+
 
 gcommall returns [List<String> listMove]
 @init { listMove = new ArrayList<String>();}
-	:	mv=gcommcoordfast {h.addMovement (listMove, mv);}
-		(gcommcoordnoint 
+	:	mv=gcommcoordfast {h.addMovement (listMove, mv);} 
+		(mu=gcommcoordnoint { h.addMovement (listMove, mu);}
 		| gcommcoordint)+
-	;
+
+	; 
 	
-exit
-	:	gcommcoordfast MCODES+
-	;
 	
 gcommcoordfast returns [String mv]
-	:	g=GCODESFAST (x=XCOORD y=YCOORD) {mv = h.createMovement ($g, $x, $y);}
+:		g=GCODESFAST (x=XCOORD y=YCOORD) {mv = h.createMovement ($g, $x, $y);}
 	;
 
-gcommcoordnoint
-	:	GCODESINT (XCOORD YCOORD)
+
+gcommcoordnoint returns [String mu]
+	:	g=GCODESINT (x=XCOORD y=YCOORD) {mu = h.createMovement ($g, $x, $y);}
 	;
 	
 gcommcoordint
@@ -115,7 +126,7 @@ GCODESFAST
 GCODESINT
 	:	'G' ('01')
 	;
-
+	
 GCODESINTCIRC
 	:	'G' ('02'|'03')
 	;
@@ -145,7 +156,7 @@ XCOORD
 	;
 	
 YCOORD
-	:	'Y' (ADD | SUB)? INT
+	:	'Y' ('+' | '-')? INT
 	;
 
 ICOORD
@@ -164,6 +175,9 @@ FCODES
 	:	'F' ('0'..'9')+
 	;
 	
+exit
+	:	gcommcoordfast MCODES+
+	;
 
 ADD	: '+';
 SUB	:	'-';
@@ -180,7 +194,7 @@ RP	:	')';
 
 PACKAGE : 'package';
 
-ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
+//ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*;
 
 INT :	'0'..'9'+
 	;
