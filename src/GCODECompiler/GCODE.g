@@ -71,21 +71,41 @@ M05 M09 M30 (exit)
 // Parser definition
 gcode returns [List<String> p]
 	//:	(uno=config x=gcommall)+ due=exit	{c=uno; p=x; e=due;}
-	:	(uno=config x=gcommall exit) {x=p; h.printConfig(uno);}
+	:	(c=config x=gcommall e=exit) {x=p; h.printConfig(c); h.printExit(e);}
+	;
+	
+exit returns [List<String> listMove]
+@init { listMove = new ArrayList<String>();}
+	:	mv=gcommcoordfast {h.addExit (listMove, mv);} 
+		//MCODES+
+		e=mconfig {	if(e!=null){for(Token temp: e) {listMove.add(temp.getText());}}}
 	;
 
 config returns [List<Token> s]
 @init { s = new ArrayList<Token>();}
-	:	a=GCODESCOORD b=TCODES c=MCODES d=otherconfig?  e=MCODES*
-	{s.add(a); s.add(b); s.add(c); if(d!=null){s.addAll(d);} if(e!=null){s.add(e);}}
+	:	a=GCODESCOORD {s.add(a);}
+		b=TCODES 	{s.add(b);}
+		c=MCODES 	{s.add(c);}
+		//d=otherconfig?  
+		(a1=GCODESF b1=GCODESS c1=FCODES d1=SCODES {if(a1!=null && b1!=null && c1!=null && d1!=null) s.add($a1); s.add($b1); s.add($c1); s.add($d1);})?
+		e=mconfig
+	{   //if(d!=null){s.addAll(d);}  
+	{if(e!=null){s.addAll(e);}} }
+	;
+
+	
+mconfig returns [List<Token> list]
+@init { list = new ArrayList<Token>();}
+	:
+	temp=(MCODES {h.addMCode(list,temp);} )*  //non funge, prende solo l'ultima M di configurazione
 	;
 //questo perchè ogni lexerule deve corrispondere a una variabile per arrivare al java
 //non va bene se faccio a=(GCODESF GCODESS FCODES SCODES)
 otherconfig returns[List<Token> s]
 @init { s = new ArrayList<Token>();}
 	:
-		a=GCODESF b=GCODESS c=FCODES d=SCODES
-	{s.add($a); s.add($b); s.add($c); s.add($d);}
+		a1=GCODESF b1=GCODESS c1=FCODES d1=SCODES
+	{s.add($a1); s.add($b1); s.add($c1); s.add($d1);}
 	;
 
 
@@ -93,13 +113,12 @@ gcommall returns [List<String> listMove]
 @init { listMove = new ArrayList<String>();}
 	:	mv=gcommcoordfast {h.addMovement (listMove, mv);} 
 		(mu=gcommcoordnoint { h.addMovement (listMove, mu);}
-		| gcommcoordint)+
-
+		| ma=gcommcoordint)+ { h.addMovement (listMove, ma);}
 	; 
 	
 	
 gcommcoordfast returns [String mv]
-:		g=GCODESFAST (x=XCOORD y=YCOORD) {mv = h.createMovement ($g, $x, $y);}
+	:	g=GCODESFAST (x=XCOORD y=YCOORD) {mv = h.createMovement ($g, $x, $y);}
 	;
 
 
@@ -107,8 +126,8 @@ gcommcoordnoint returns [String mu]
 	:	g=GCODESINT (x=XCOORD y=YCOORD) {mu = h.createMovement ($g, $x, $y);}
 	;
 	
-gcommcoordint
-	:	GCODESINTCIRC (XCOORD YCOORD) (ICOORD JCOORD)
+gcommcoordint returns [String mz]
+	:	g=GCODESINTCIRC (x=XCOORD y=YCOORD) (i=ICOORD j=JCOORD) {mz = h.createMovement($g,$x,$y,$i,$y);}
 	;
 	
 //Lexer definition
@@ -175,9 +194,7 @@ FCODES
 	:	'F' ('0'..'9')+
 	;
 	
-exit
-	:	gcommcoordfast MCODES+
-	;
+
 
 ADD	: '+';
 SUB	:	'-';

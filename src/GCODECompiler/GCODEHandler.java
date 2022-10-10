@@ -106,21 +106,48 @@ public class GCODEHandler {
 	
 	public String createMovement (Token g, Token x, Token y) {
 		if (g != null && x != null && y != null) {
-			System.out.println(g.getText() + ";" + x.getText() + ";" + y.getText());
+			//System.out.println(g.getText() + ";" + x.getText() + ";" + y.getText());
 			return g.getText() + ";" + x.getText() + ";" + y.getText();
 		}
 		return null;
 	}
 	
-	public void addMovement (List<String> list, String pd) {
-		System.out.println("we allora"+pd);
+	public String createMovement(Token g, Token x, Token y, Token i, Token j) {
+		if (g != null && x != null && y != null && i!=null & j!=null) {
+			//System.out.println(g.getText() + ";" + x.getText() + ";" + y.getText());
+			return g.getText() + ";" + x.getText() + ";" + y.getText() +";"+i.getText()+";"+j.getText();
+		}
+		return null;
+	}
+	
+	public void addExit (List<String> list, String pd) {
+		System.out.println("Movimento-> "+pd);
 		list.add(pd);
+	}
+	
+	public void addMovement (List<String> list, String pd) {
+		System.out.println("Movimento-> "+pd);
+		list.add(pd);
+	}
+	
+	public void addMCode(List<Token> list, Token temp) {
+		//System.out.println("MConfig-> "+temp.getText());
+		list.add(temp);
 	}
 	
 	public void printConfig(List<Token> c)
 	{
+		System.out.print("Configurazione-> ");
 		for(Token config:c){
-			System.out.print(" "+config.getText());
+			System.out.print(config.getText()+" ");
+		}
+		System.out.println();
+	}
+	
+	public void printExit(List<String> e) {
+		System.out.print("Uscita-> ");
+		for(String config:e){
+			System.out.print(config+" ");
 		}
 		System.out.println();
 	}
@@ -383,6 +410,9 @@ public class GCODEHandler {
 			default: return "Sconosciuto";
 		}
 	}*/
+
+
+
 
 }
 
