@@ -30,7 +30,7 @@ public class Graphic extends JPanel {
 		
 		for(int i = 1; i < prop.length; i++) {
 			prop[i] = prop[i].substring(1);
-			System.out.println(prop[i]);
+			//System.out.println(prop[i]);
 		}
 		
 		if(prop[0].equals("G00")) {
@@ -43,7 +43,7 @@ public class Graphic extends JPanel {
 			firstx = Integer.parseInt(prop[1]);
 			firsty = yorigin - Integer.parseInt(prop[2]);
 		}else if(prop[0].equals("G02")) {
-			System.out.println("conta:" + conta++);
+			//System.out.println("conta:" + conta++);
 			float x0 = Integer.parseInt(prop[3]);
 			float y0 = 500 - Integer.parseInt(prop[4]);
 			float x1 = firstx;
@@ -58,7 +58,7 @@ public class Graphic extends JPanel {
 			float startAngle = (float) (180/Math.PI*Math.atan2(y1-y0, x1-x0));
 			float endAngle = (float) (180/Math.PI*Math.atan2(y2-y0, x2-x0));
 			
-			System.out.println(x0 + " " + y0 + " " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + r + " " + x + " " + y + " " + width + " " + height + " " + startAngle + " " + endAngle);
+			//System.out.println(x0 + " " + y0 + " " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + r + " " + x + " " + y + " " + width + " " + height + " " + startAngle + " " + endAngle);
 			if(startAngle - endAngle < 0)
 				g.drawArc((int)x, (int)y, (int)width, (int)height, (int)(360.0 - startAngle), (int)(startAngle - endAngle));
 			else
@@ -69,7 +69,7 @@ public class Graphic extends JPanel {
 			firstx = Integer.parseInt(prop[1]);
 			firsty = yorigin - Integer.parseInt(prop[2]);
 		} else if(prop[0].equals("G03")) {
-			System.out.println("ciao");
+			//System.out.println("ciao");
 			float x0 = Integer.parseInt(prop[3]);
 			float y0 = 500 - Integer.parseInt(prop[4]);
 			float x1 = firstx;
@@ -84,7 +84,7 @@ public class Graphic extends JPanel {
 			float startAngle = (float) (180/Math.PI*Math.atan2(y1-y0, x1-x0));
 			float endAngle = (float) (180/Math.PI*Math.atan2(y2-y0, x2-x0));
 			
-			System.out.println(x0 + " " + y0 + " " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + r + " " + x + " " + y + " " + width + " " + height + " " + startAngle + " " + endAngle);
+			//System.out.println(x0 + " " + y0 + " " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + r + " " + x + " " + y + " " + width + " " + height + " " + startAngle + " " + endAngle);
 			if(startAngle - endAngle > 0)
 				g.drawArc((int)x, (int)y, (int)width, (int)height, (int)(360.0 - startAngle), (int)(startAngle - endAngle));
 			else

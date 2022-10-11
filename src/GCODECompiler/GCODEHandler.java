@@ -118,7 +118,7 @@ public class GCODEHandler {
 //utilizzato per creare stringe di tagli G02 G03
 	public String createMovement(Token g, Token x, Token y, Token i, Token j) {
 		if (g != null && x != null && y != null && i!=null & j!=null) {
-			System.out.println("madonna merda:" + g.getText() + ";" + x.getText() + ";" + y.getText() +";"+i.getText()+";"+j.getText());
+			//System.out.println(g.getText() + ";" + x.getText() + ";" + y.getText() +";"+i.getText()+";"+j.getText());
 			return g.getText() + ";" + x.getText() + ";" + y.getText() +";"+i.getText()+";"+j.getText();
 		}
 		return null;
