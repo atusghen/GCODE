@@ -11,11 +11,15 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,9 +28,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 
 import org.antlr.runtime.RecognitionException;
@@ -36,25 +43,23 @@ import myPackage.Interfaccia;
 @SuppressWarnings("serial")
 public class Interfaccia extends JPanel {
 	
+	static JLabel back;
+    
+    static BufferedImage backBtn;
+	
     static JButton button = new JButton("Sfoglia");
     static ButtonGroup topGroup = new ButtonGroup();
     static JLabel winTitle = new JLabel("GCODE Parser");
     static JLabel spazio = new JLabel(" ");
     static JLabel spazio1 = new JLabel(" ");
-	static JLabel titolo = new JLabel("TITOLO:");
-	static JLabel ti = new JLabel();
-	static JLabel artista = new JLabel("ARTISTA:");
-	static JLabel ar = new JLabel();
-	static JLabel album = new JLabel("ALBUM:");
-	static JLabel al = new JLabel();
-	static JLabel anno = new JLabel("ANNO:");
-	static JLabel an = new JLabel();
-	static JLabel commento = new JLabel("COMMENTO:");
-	static JLabel co = new JLabel();
-	static JLabel genere = new JLabel("GENERE:");
-	static JLabel ge = new JLabel();
-    static JPanel infopanel = new JPanel();
-    static JPanel infopanel1 = new JPanel();
+    
+    static JScrollPane scroll;
+    static JTextArea dataarea = new JTextArea();
+
+    static JPanel searchpanel = new JPanel();
+    static JPanel datapanel = new JPanel();
+    static JPanel mainpanel = new JPanel();
+    static JPanel windowpanel = new JPanel();
     
     static Graphic graphic;
     
@@ -66,19 +71,39 @@ public class Interfaccia extends JPanel {
     	winTitle.setHorizontalAlignment(JLabel.CENTER);
     	winTitle.setVerticalAlignment(JLabel.CENTER);
     	winTitle.setFont(new Font("SansSerif", Font.BOLD, 20));
+    	
+    	try {
+    		backBtn = ImageIO.read(getClass().getResourceAsStream("img/back-button.png"));
+    	}catch(Exception e) {
+    		
+    	}
+    	
+    	back = new JLabel(new ImageIcon(backBtn));
+    	
+    	back.setVisible(false);
+    	back.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    	back.setHorizontalAlignment(JLabel.LEFT);
+    	back.setVerticalAlignment(JLabel.CENTER);
+    	
+    	windowpanel.setLayout(new BorderLayout());
+    	windowpanel.add(back, BorderLayout.NORTH);
+    	windowpanel.setBackground(Color.WHITE);
+    	windowpanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+    	
     	//infopanel1.setLayout(new BorderLayout());
     	//infopanel1.add(winTitle, BorderLayout.NORTH);
     	//infopanel1.setBackground(Color.WHITE);
     	//infopanel1.setOpaque(false);
     	
-    	infopanel.setLayout(new GridBagLayout());
+    	searchpanel.setLayout(new GridBagLayout());
     	GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-
-        infopanel.add(winTitle, gbc);
-        infopanel.add(spazio1, gbc);
-        infopanel.add(button, gbc);
-        infopanel.add(spazio, gbc);
+        
+        
+        searchpanel.add(winTitle, gbc);
+        searchpanel.add(spazio1, gbc);
+        searchpanel.add(button, gbc);
+        searchpanel.add(spazio, gbc);
     	
     	/*infopanel.setLayout(new BorderLayout());
     	infopanel.add(winTitle, BorderLayout.NORTH);
@@ -92,9 +117,9 @@ public class Interfaccia extends JPanel {
     	//gridLayout.setHgap(20);
     	//infopanel.getLayout().setVgap(25);
 
-    	infopanel.setBorder(new EmptyBorder(10, 10, 10, 10));
-        infopanel.setPreferredSize(new Dimension(500, 200));
-        infopanel.setOpaque(false);
+        searchpanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+        searchpanel.setPreferredSize(new Dimension(500, 200));
+        searchpanel.setOpaque(false);
         //infopanel.setSize(new Dimension(350, 400));        
         
         button.setForeground(Color.WHITE);
@@ -108,6 +133,23 @@ public class Interfaccia extends JPanel {
         button.setBorder(compound);
         button.setFont(new Font("SansSerif", Font.PLAIN, 20));
         
+        dataarea.setEditable(false);
+        dataarea.setFont(new Font("SansSerif", Font.PLAIN, 13));
+        
+        //datapanel.setBorder(new EmptyBorder(10, 10, 10, 10));
+    	datapanel.setBackground(Color.WHITE);
+    	//datapanel.setPreferredSize(new Dimension(800, 500));
+    	
+    	//datapanel.setOpaque(false);
+        
+        scroll = new JScrollPane(datapanel);
+        scroll.setBorder(new EmptyBorder(0, 0, 0, 0));
+        scroll.setPreferredSize(new Dimension(800, 500));
+        scroll.setBackground(Color.WHITE);
+        //scroll.setOpaque(false);
+        
+        datapanel.add(dataarea);
+        
         
         
         InputStream stream;
@@ -118,60 +160,96 @@ public class Interfaccia extends JPanel {
         //infopanel.add(sp2);
         //infopanel.add(button);
         
-       infopanel1.setLayout(new GridBagLayout());
-       /*GridBagConstraints*/ gbc = new GridBagConstraints();
+        mainpanel.setLayout(new GridBagLayout());
+        /*GridBagConstraints*/ gbc = new GridBagConstraints();
 
-    	// Row 0 - Filename
-    		// Col 0
-    	gbc.gridx = 0;
-    	gbc.gridy = 0;
-    	//gbc.insets = new Insets(5, 0, 0, 10);
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel1.add(infopanel, gbc);
+     	// Row 0 - Filename
+     		// Col 0
+     	gbc.gridx = 0;
+     	gbc.gridy = 0;
+     	//gbc.insets = new Insets(5, 0, 0, 10);
+     	gbc.anchor = GridBagConstraints.LINE_START;
+     	mainpanel.add(searchpanel, gbc);
+     	
+     	gbc.gridx = 1;
+     	gbc.gridy = 0;
+     	gbc.anchor = GridBagConstraints.LINE_START;
+     	mainpanel.add(scroll, gbc);
+     	scroll.setVisible(false);
 
-    	graphic = new Graphic();
-    		// Col 1
-    	gbc.gridx = 1;
-    	gbc.gridy = 0;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel1.add(graphic, gbc);
-    	graphic.setVisible(false);
-    	
-    	
-    	infopanel1.setBackground(Color.WHITE);
+     	graphic = new Graphic();
+     	//graphic.setBorder(BorderFactory.createCompoundBorder(new EmptyBorder(-10, -10, -10, -10),  new EtchedBorder()));
+     		// Col 1
+     	gbc.gridx = 2;
+     	gbc.gridy = 0;
+     	gbc.anchor = GridBagConstraints.LINE_START;
+     	mainpanel.add(graphic, gbc);
+     	graphic.setVisible(false);
+     	
+     	
+     	mainpanel.setBackground(Color.WHITE);
+     	
+     	windowpanel.add(mainpanel);
 
-    	jF.pack();
+     	jF.pack();
+         
+         //infopanel1.add(infopanel);
+         
+         
+         jF.getContentPane().add(windowpanel);
+         
+         //jF.getContentPane().add(infopanel);
+         //jF.setBackground(Color.WHITE);
+         //ImageIcon ii = new ImageIcon(getClass().getResource("check.png"));
+         stream = getClass().getResourceAsStream("img/icon.png");
+         icon= new ImageIcon(ImageIO.read(stream));
+         jF.setIconImage(icon.getImage());
+         //jF.setIconImage(new ImageIcon(getClass().getResource("img/music.png")).getImage());
+         jF.pack();
+         jF.setLocationRelativeTo(null);
+         jF.setResizable(false);
+         //jF.setSize(500, 150);
+         jF.setVisible(true);
+         
+         button.addActionListener(new ActionListener() { 
+     	    public void actionPerformed(ActionEvent e) { 
+     	       startParsing(e);
+     	       back.setVisible(true);
+     	       searchpanel.setVisible(false);
+     	       scroll.setVisible(true);
+     	       graphic.setVisible(true);
+     	       graphic.repaint();
+     	       //infopanel.remove(spazio);
+     	       //jF.getContentPane().add(graphic);
+     	       searchpanel.setPreferredSize(new Dimension(1000, 1000));
+     	       jF.pack();
+     	       jF.setLocationRelativeTo(null);
+         }
+        });
+         
         
-        //infopanel1.add(infopanel);
-        
-        
-        jF.getContentPane().add(infopanel1);
-        
-        //jF.getContentPane().add(infopanel);
-        //jF.setBackground(Color.WHITE);
-        //ImageIcon ii = new ImageIcon(getClass().getResource("check.png"));
-        stream = getClass().getResourceAsStream("img/icon.png");
-        icon= new ImageIcon(ImageIO.read(stream));
-        jF.setIconImage(icon.getImage());
-        //jF.setIconImage(new ImageIcon(getClass().getResource("img/music.png")).getImage());
-        jF.pack();
-        jF.setLocationRelativeTo(null);
-        jF.setResizable(false);
-        //jF.setSize(500, 150);
-        jF.setVisible(true);
-        
-        button.addActionListener(new ActionListener() { 
-    	    public void actionPerformed(ActionEvent e) { 
-    	       startParsing(e);
-    	       graphic.setVisible(true);
-    	       graphic.repaint();
-    	       //infopanel.remove(spazio);
-    	       //jF.getContentPane().add(graphic);
-    	       infopanel.setPreferredSize(new Dimension(500, 500));
-    	       jF.pack();
-    	       jF.setLocationRelativeTo(null);
-        }
-       });
+        back.addMouseListener(new MouseAdapter()  
+    	{  
+		    public void mouseClicked(MouseEvent e)  
+		    {	
+		    	back.setVisible(false);
+		    	searchpanel.setVisible(true);
+		    	scroll.setVisible(false);
+		    	graphic.setVisible(false);
+		    	graphic.repaint();
+		    	searchpanel.setPreferredSize(new Dimension(500, 200));
+		    	jF.setTitle("GCODE");
+		    	dataarea.setText("");
+		    	jF.repaint();
+		        
+		    	
+		       //infopanel.remove(infopanel2);
+		       //infopanel.remove(infopanel3);
+		    	
+		    	jF.pack();
+		    	jF.setLocationRelativeTo(null);
+		    }  
+    	});
   
       
         
@@ -180,130 +258,21 @@ public class Interfaccia extends JPanel {
         
     }
     
-    public static void setData(int c, String data) {
+    public static void setData(String data) {
     	//infopanel.setPreferredSize(new Dimension(400, 200));
     	jF.pack();
     	
-    	Component[] components = infopanel.getComponents();
+    	Component[] components = scroll.getComponents();
 
     	for (Component singleComponent : components) {
-    	   if (singleComponent instanceof JLabel) {
-    	       JLabel label = (JLabel) singleComponent;
-    	       label.setFont(new Font("SansSerif", Font.PLAIN, 14));
+    	   if (singleComponent instanceof JTextArea) {
+    	       JTextArea label = (JTextArea) singleComponent;
+    	       label.setFont(new Font("SansSerif", Font.PLAIN, 20));
     	   }
     	}
     	
-    	//infopanel.setBorder(new EmptyBorder(10, 50, 10, 10));
+    	dataarea.append(data);
     	
-        //infopanel.add(titolo).setVisible(false);
-        //infopanel.add(ti).setVisible(false);
-        //infopanel.add(artista).setVisible(false);
-        //infopanel.add(ar).setVisible(false);
-        /*infopanel.add(album).setVisible(false);
-        infopanel.add(al).setVisible(false);
-        infopanel.add(anno).setVisible(false);
-        infopanel.add(an).setVisible(false);
-        infopanel.add(commento).setVisible(false);
-        infopanel.add(co).setVisible(false);
-        infopanel.add(genere).setVisible(false);
-        infopanel.add(ge).setVisible(false);*/
-    	infopanel.setLayout(new GridBagLayout());
-    	GridBagConstraints gbc = new GridBagConstraints();
-
-    	// Row 0 - Filename
-    		// Col 0
-    	gbc.gridx = 0;
-    	gbc.gridy = 0;
-    	gbc.insets = new Insets(5, 0, 0, 10);
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(titolo, gbc);
-
-    		// Col 1
-    	gbc.gridx = 1;
-    	gbc.gridy = 0;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(ti, gbc);
-
-    		// Col 2
-    	gbc.gridx = 0;
-    	gbc.gridy = 1;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(artista, gbc);
-    	
-    	gbc.gridx = 1;
-    	gbc.gridy = 1;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(ar, gbc);
-    	
-    	gbc.gridx = 0;
-    	gbc.gridy = 2;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(album, gbc);
-    	
-    	gbc.gridx = 1;
-    	gbc.gridy = 2;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(al, gbc);
-    	
-    	gbc.gridx = 0;
-    	gbc.gridy = 3;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(anno, gbc);
-    	
-    	gbc.gridx = 1;
-    	gbc.gridy = 3;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(an, gbc);
-    	
-    	gbc.gridx = 0;
-    	gbc.gridy = 4;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(commento, gbc);
-    	
-    	gbc.gridx = 1;
-    	gbc.gridy = 4;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(co, gbc);
-    	
-    	gbc.gridx = 0;
-    	gbc.gridy = 5;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(genere, gbc);
-    	
-    	gbc.gridx = 1;
-    	gbc.gridy = 5;
-    	gbc.anchor = GridBagConstraints.LINE_START;
-    	infopanel.add(ge, gbc);
-    	
-    	jF.pack();
-    	
-    	infopanel.remove(button);
-    	infopanel.remove(spazio);
-    	titolo.setVisible(true);
-        ti.setVisible(true);
-        artista.setVisible(true);
-        ar.setVisible(true);
-        album.setVisible(true);
-        al.setVisible(true);
-        anno.setVisible(true);
-        an.setVisible(true);
-        commento.setVisible(true);
-        co.setVisible(true);
-        genere.setVisible(true);
-        ge.setVisible(true);
-        jF.pack();
-        if(c == 1)
-        	ti.setText(data);
-        if(c == 2)
-        	ar.setText(data);
-        if(c == 3)
-        	al.setText(data);
-        if(c == 4)
-        	an.setText(data);
-        if(c == 5)
-        	co.setText(data);
-        if(c == 6)
-    	ge.setText(data);
     	
     }
     

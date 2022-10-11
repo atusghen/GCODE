@@ -1,8 +1,7 @@
 package GCODECompiler;
 
 import myPackage.Graphic;
-
-
+import myPackage.Interfaccia;
 
 import java.time.Year;
 import java.util.ArrayList;
@@ -142,30 +141,46 @@ public class GCODEHandler {
 	
 	public void printConfig(List<String> c)
 	{
+		String data = null;
 		System.out.println("Configurazione-> ");
+		Interfaccia.setData("Configurazione-> " + "\n");
 		for(String config:c){
+			data = "";
 			System.out.print(config+"	");
 			System.out.println(recognizeConfig(config));
+			data = config + "	" + recognizeConfig(config) + "\n";
+			Interfaccia.setData(data);
 		}
+		Interfaccia.setData("\n");
 		System.out.println();
 	}
 	
 
 	public void printCommand(List<String> listcom) {
+		String data = null;
 		for(String com:listcom){
+			data = "";
 			System.out.print("Movimento-> "+com+"	");
 			System.out.println(recognizeComm(com));
 			Graphic.Graphic(listcom);
+			data = "Movimento-> "+com+"	" + recognizeComm(com) + "\n";
+			Interfaccia.setData(data);
 		}
+		Interfaccia.setData("\n");
 		System.out.println();
 	}
 	
 
 	public void printExit(List<String> e) {
+		String data = null;
 		System.out.print("Uscita-> ");
+		Interfaccia.setData("Uscita-> ");
 		for(String config:e){
+			data = "";
 			System.out.print(config+"	");
 			System.out.println(recognizeExit(config));
+			data = config+ "	" + recognizeExit(config) + "\n";
+			Interfaccia.setData(data);
 		}
 		System.out.println();
 	}
@@ -254,12 +269,12 @@ public class GCODEHandler {
 				res.append("	Taglio Lineare "); 
 				res.append("a punto "+prop[1]+" "+prop[2]); break;
 			case "G02":
-				res.append("Taglio circolare antiorario "); 
+				res.append("Taglio circolare orario "); 
 				res.append("a punto "+prop[1]+" "+prop[2]);
 				res.append("di centro "+prop[3]+" "+prop[4]);
 				break;
 			case "G03":
-				res.append("Taglio circolare orario "); 
+				res.append("Taglio circolare antiorario "); 
 				res.append("a punto "+prop[1]+" "+prop[2]);
 				res.append(" di centro "+prop[3]+" "+prop[4]);
 				break;
