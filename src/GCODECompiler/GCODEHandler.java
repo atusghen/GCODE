@@ -140,20 +140,24 @@ public class GCODEHandler {
 	
 	public void printConfig(List<String> c)
 	{
-		System.out.print("Configurazione-> ");
+		System.out.println("Configurazione-> ");
 		for(String config:c){
 			System.out.print(config+" ");
+			System.out.println(recognizeConfig(config));
 		}
 		System.out.println();
 	}
 	
-	public void printCommand(List<String> x) {
-		for(String config:x){
-			System.out.println("Movimento-> "+config);
+
+	public void printCommand(List<String> listcom) {
+		for(String com:listcom){
+			System.out.print("Movimento-> "+com+" ");
+			System.out.println(recognizeComm(com));
 		}
-		//System.out.println();
+		System.out.println();
 	}
 	
+
 	public void printExit(List<String> e) {
 		System.out.print("Uscita-> ");
 		for(String config:e){
@@ -162,9 +166,96 @@ public class GCODEHandler {
 		System.out.println();
 	}
 	
+
+	private String recognizeConfig(String c) {
+		switch(c) {
+			case "G90":
+				return "G90";
+			case "G91":
+				return "G91";
+			case "M00":
+				return "M00";
+			case "M03":
+				return "M03";
+			case "M04":
+				return "M04";
+			case "M05":
+				return "M05";
+			case "M06":
+				return "M06";
+			case "M08":
+				return "M08";
+			case "M09":
+				return "M09";
+			case "M10":
+				return "M10";
+			case "M11":
+				return "M11";
+			case "M30":
+				return "M30";
+			case "M60":
+				return "M60";
+			case "M72":
+				return "M72";
+			case "G94":
+				return "G94";
+			case "G95":
+				return "G95";
+			case "G96":
+				return "G94";
+			case "G97":
+				return "G95";
+			
+		}
+		if(c.charAt(0)=='T')
+			return recognizeCNC(c);
+		if(c.charAt(0)=='F')
+			return recognizeF(c);
+		if(c.charAt(0)=='S')
+			return recognizeS(c);
+		return "error";
+	}
 	
+	private String recognizeS(String c) {
+		return "S +"+c.substring(1);
+	}
+
+	private String recognizeF(String c) {
+		return "F +"+c.substring(1);
+	}
+
+	private String recognizeCNC(String c) {
+		String temp =c.substring(1);
+		int numMachine = Integer.parseInt(temp.substring(0, temp.length()/2));
+		int numUtensil = Integer.parseInt(temp.substring(temp.length()/2, temp.length()));
+		return "selezionata Macchina "+String.valueOf(numMachine)+" con utensile Numero "+String.valueOf(numUtensil);
+	}
 	
-	
+	private String recognizeComm(String com) {
+		StringBuilder res=new StringBuilder();
+		String[] prop = com.split(";");
+		switch(prop[0]) {
+			case "G00":
+				res.append("Movimento rapido ");
+				res.append("a punto "+prop[1]+" "+prop[2]); break;
+			case "G01":
+				res.append("Taglio Lineare "); 
+				res.append("a punto "+prop[1]+" "+prop[2]); break;
+			case "G02":
+				res.append("Taglio circolare antiorario "); 
+				res.append("a punto "+prop[1]+" "+prop[2]);
+				res.append("di centro "+prop[3]+" "+prop[4]);
+				break;
+			case "G03":
+				res.append("Taglio circolare orario "); 
+				res.append("a punto "+prop[1]+" "+prop[2]);
+				res.append(" di centro "+prop[3]+" "+prop[4]);
+				break;
+		}
+		
+		return res.toString();
+	}
+
 	//tutti questi metodi possono lanciare errore semantico una volta completata la lettura del token
 	public void stampa (Token T)
 	{
