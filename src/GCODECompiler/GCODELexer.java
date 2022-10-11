@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g 2022-10-10 20:40:21
+// $ANTLR 3.5.1 C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g 2022-10-11 10:07:55
 
 	package GCODECompiler;
 
@@ -72,11 +72,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = GCODESCOORD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:138:2: ( 'G' ( '90' | '91' ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:138:4: 'G' ( '90' | '91' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:140:2: ( 'G' ( '90' | '91' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:140:4: 'G' ( '90' | '91' )
 			{
 			match('G'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:138:8: ( '90' | '91' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:140:8: ( '90' | '91' )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='9') ) {
@@ -110,14 +110,14 @@ public class GCODELexer extends Lexer {
 
 			switch (alt1) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:138:9: '90'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:140:9: '90'
 					{
 					match("90"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:138:14: '91'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:140:14: '91'
 					{
 					match("91"); 
 
@@ -142,8 +142,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = GCODESFAST;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:142:2: ( 'G' '00' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:142:4: 'G' '00'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:144:2: ( 'G' '00' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:144:4: 'G' '00'
 			{
 			match('G'); 
 			match("00"); 
@@ -164,12 +164,12 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = GCODESINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:146:2: ( 'G' ( '01' ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:146:4: 'G' ( '01' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:148:2: ( 'G' ( '01' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:148:4: 'G' ( '01' )
 			{
 			match('G'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:146:8: ( '01' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:146:9: '01'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:148:8: ( '01' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:148:9: '01'
 			{
 			match("01"); 
 
@@ -191,11 +191,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = GCODESINTCIRC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:150:2: ( 'G' ( '02' | '03' ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:150:4: 'G' ( '02' | '03' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:152:2: ( 'G' ( '02' | '03' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:152:4: 'G' ( '02' | '03' )
 			{
 			match('G'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:150:8: ( '02' | '03' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:152:8: ( '02' | '03' )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0=='0') ) {
@@ -229,14 +229,14 @@ public class GCODELexer extends Lexer {
 
 			switch (alt2) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:150:9: '02'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:152:9: '02'
 					{
 					match("02"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:150:14: '03'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:152:14: '03'
 					{
 					match("03"); 
 
@@ -261,11 +261,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = GCODESCOMP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:154:2: ( 'G' ( '40' | '41' | '42' ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:154:4: 'G' ( '40' | '41' | '42' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:156:2: ( 'G' ( '40' | '41' | '42' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:156:4: 'G' ( '40' | '41' | '42' )
 			{
 			match('G'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:154:8: ( '40' | '41' | '42' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:156:8: ( '40' | '41' | '42' )
 			int alt3=3;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='4') ) {
@@ -306,21 +306,21 @@ public class GCODELexer extends Lexer {
 
 			switch (alt3) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:154:9: '40'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:156:9: '40'
 					{
 					match("40"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:154:14: '41'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:156:14: '41'
 					{
 					match("41"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:154:19: '42'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:156:19: '42'
 					{
 					match("42"); 
 
@@ -345,11 +345,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = GCODESF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:158:2: ( 'G' ( '94' | '95' ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:158:4: 'G' ( '94' | '95' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:160:2: ( 'G' ( '94' | '95' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:160:4: 'G' ( '94' | '95' )
 			{
 			match('G'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:158:8: ( '94' | '95' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:160:8: ( '94' | '95' )
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='9') ) {
@@ -383,14 +383,14 @@ public class GCODELexer extends Lexer {
 
 			switch (alt4) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:158:9: '94'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:160:9: '94'
 					{
 					match("94"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:158:14: '95'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:160:14: '95'
 					{
 					match("95"); 
 
@@ -415,11 +415,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = GCODESS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:162:2: ( 'G' ( '96' | '97' ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:162:4: 'G' ( '96' | '97' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:164:2: ( 'G' ( '96' | '97' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:164:4: 'G' ( '96' | '97' )
 			{
 			match('G'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:162:8: ( '96' | '97' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:164:8: ( '96' | '97' )
 			int alt5=2;
 			int LA5_0 = input.LA(1);
 			if ( (LA5_0=='9') ) {
@@ -453,14 +453,14 @@ public class GCODELexer extends Lexer {
 
 			switch (alt5) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:162:9: '96'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:164:9: '96'
 					{
 					match("96"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:162:14: '97'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:164:14: '97'
 					{
 					match("97"); 
 
@@ -485,11 +485,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = TCODES;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:166:2: ( 'T' ( '0' .. '9' '0' .. '9' )+ )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:166:4: 'T' ( '0' .. '9' '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:168:2: ( 'T' ( '0' .. '9' '0' .. '9' )+ )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:168:4: 'T' ( '0' .. '9' '0' .. '9' )+
 			{
 			match('T'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:166:8: ( '0' .. '9' '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:168:8: ( '0' .. '9' '0' .. '9' )+
 			int cnt6=0;
 			loop6:
 			while (true) {
@@ -501,7 +501,7 @@ public class GCODELexer extends Lexer {
 
 				switch (alt6) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:166:9: '0' .. '9' '0' .. '9'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:168:9: '0' .. '9' '0' .. '9'
 					{
 					matchRange('0','9'); 
 					matchRange('0','9'); 
@@ -532,11 +532,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = MCODES;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:2: ( 'M' ( '00' | '03' | '04' | '05' | '06' | '08' | '09' | '10' | '11' | '30' | '60' | '72' ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:4: 'M' ( '00' | '03' | '04' | '05' | '06' | '08' | '09' | '10' | '11' | '30' | '60' | '72' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:2: ( 'M' ( '00' | '03' | '04' | '05' | '06' | '08' | '09' | '10' | '11' | '30' | '60' | '72' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:4: 'M' ( '00' | '03' | '04' | '05' | '06' | '08' | '09' | '10' | '11' | '30' | '60' | '72' )
 			{
 			match('M'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:8: ( '00' | '03' | '04' | '05' | '06' | '08' | '09' | '10' | '11' | '30' | '60' | '72' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:8: ( '00' | '03' | '04' | '05' | '06' | '08' | '09' | '10' | '11' | '30' | '60' | '72' )
 			int alt7=12;
 			switch ( input.LA(1) ) {
 			case '0':
@@ -636,84 +636,84 @@ public class GCODELexer extends Lexer {
 			}
 			switch (alt7) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:9: '00'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:9: '00'
 					{
 					match("00"); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:14: '03'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:14: '03'
 					{
 					match("03"); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:19: '04'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:19: '04'
 					{
 					match("04"); 
 
 					}
 					break;
 				case 4 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:24: '05'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:24: '05'
 					{
 					match("05"); 
 
 					}
 					break;
 				case 5 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:29: '06'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:29: '06'
 					{
 					match("06"); 
 
 					}
 					break;
 				case 6 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:34: '08'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:34: '08'
 					{
 					match("08"); 
 
 					}
 					break;
 				case 7 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:39: '09'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:39: '09'
 					{
 					match("09"); 
 
 					}
 					break;
 				case 8 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:44: '10'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:44: '10'
 					{
 					match("10"); 
 
 					}
 					break;
 				case 9 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:49: '11'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:49: '11'
 					{
 					match("11"); 
 
 					}
 					break;
 				case 10 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:54: '30'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:54: '30'
 					{
 					match("30"); 
 
 					}
 					break;
 				case 11 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:59: '60'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:59: '60'
 					{
 					match("60"); 
 
 					}
 					break;
 				case 12 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:170:64: '72'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:172:64: '72'
 					{
 					match("72"); 
 
@@ -738,11 +738,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = XCOORD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:174:2: ( 'X' ( '+' | '-' )? INT )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:174:4: 'X' ( '+' | '-' )? INT
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:176:2: ( 'X' ( '+' | '-' )? INT )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:176:4: 'X' ( '+' | '-' )? INT
 			{
 			match('X'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:174:8: ( '+' | '-' )?
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:176:8: ( '+' | '-' )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0=='+'||LA8_0=='-') ) {
@@ -783,11 +783,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = YCOORD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:178:2: ( 'Y' ( '+' | '-' )? INT )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:178:4: 'Y' ( '+' | '-' )? INT
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:180:2: ( 'Y' ( '+' | '-' )? INT )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:180:4: 'Y' ( '+' | '-' )? INT
 			{
 			match('Y'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:178:8: ( '+' | '-' )?
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:180:8: ( '+' | '-' )?
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0=='+'||LA9_0=='-') ) {
@@ -828,11 +828,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = ICOORD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:182:2: ( 'I' ( ADD | SUB )? INT )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:182:4: 'I' ( ADD | SUB )? INT
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:184:2: ( 'I' ( ADD | SUB )? INT )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:184:4: 'I' ( ADD | SUB )? INT
 			{
 			match('I'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:182:8: ( ADD | SUB )?
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:184:8: ( ADD | SUB )?
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0=='+'||LA10_0=='-') ) {
@@ -873,11 +873,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = JCOORD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:186:2: ( 'J' ( ADD | SUB )? INT )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:186:4: 'J' ( ADD | SUB )? INT
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:188:2: ( 'J' ( ADD | SUB )? INT )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:188:4: 'J' ( ADD | SUB )? INT
 			{
 			match('J'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:186:8: ( ADD | SUB )?
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:188:8: ( ADD | SUB )?
 			int alt11=2;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0=='+'||LA11_0=='-') ) {
@@ -918,11 +918,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = SCODES;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:190:2: ( 'S' ( '0' .. '9' )+ )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:190:4: 'S' ( '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:192:2: ( 'S' ( '0' .. '9' )+ )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:192:4: 'S' ( '0' .. '9' )+
 			{
 			match('S'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:190:8: ( '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:192:8: ( '0' .. '9' )+
 			int cnt12=0;
 			loop12:
 			while (true) {
@@ -971,11 +971,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = FCODES;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:194:2: ( 'F' ( '0' .. '9' )+ )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:194:4: 'F' ( '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:196:2: ( 'F' ( '0' .. '9' )+ )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:196:4: 'F' ( '0' .. '9' )+
 			{
 			match('F'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:194:8: ( '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:196:8: ( '0' .. '9' )+
 			int cnt13=0;
 			loop13:
 			while (true) {
@@ -1024,8 +1024,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = ADD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:199:5: ( '+' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:199:7: '+'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:201:5: ( '+' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:201:7: '+'
 			{
 			match('+'); 
 			}
@@ -1044,8 +1044,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = SUB;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:200:5: ( '-' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:200:7: '-'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:202:5: ( '-' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:202:7: '-'
 			{
 			match('-'); 
 			}
@@ -1064,8 +1064,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = MUL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:201:5: ( '*' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:201:7: '*'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:203:5: ( '*' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:203:7: '*'
 			{
 			match('*'); 
 			}
@@ -1084,8 +1084,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = DIV;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:202:5: ( '/' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:202:7: '/'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:204:5: ( '/' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:204:7: '/'
 			{
 			match('/'); 
 			}
@@ -1104,8 +1104,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = COMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:203:7: ( ',' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:203:9: ','
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:205:7: ( ',' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:205:9: ','
 			{
 			match(','); 
 			}
@@ -1124,8 +1124,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = SC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:204:5: ( ';' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:204:7: ';'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:206:5: ( ';' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:206:7: ';'
 			{
 			match(';'); 
 			}
@@ -1144,8 +1144,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = DOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:205:5: ( '.' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:205:7: '.'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:207:5: ( '.' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:207:7: '.'
 			{
 			match('.'); 
 			}
@@ -1164,8 +1164,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = LB;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:206:5: ( '{' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:206:7: '{'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:208:5: ( '{' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:208:7: '{'
 			{
 			match('{'); 
 			}
@@ -1184,8 +1184,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = RB;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:207:5: ( '}' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:207:7: '}'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:209:5: ( '}' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:209:7: '}'
 			{
 			match('}'); 
 			}
@@ -1204,8 +1204,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = EQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:208:5: ( '=' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:208:7: '='
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:210:5: ( '=' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:210:7: '='
 			{
 			match('='); 
 			}
@@ -1224,8 +1224,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = LP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:209:4: ( '(' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:209:6: '('
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:211:4: ( '(' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:211:6: '('
 			{
 			match('('); 
 			}
@@ -1244,8 +1244,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = RP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:210:4: ( ')' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:210:6: ')'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:212:4: ( ')' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:212:6: ')'
 			{
 			match(')'); 
 			}
@@ -1264,8 +1264,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = PACKAGE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:212:9: ( 'package' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:212:11: 'package'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:214:9: ( 'package' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:214:11: 'package'
 			{
 			match("package"); 
 
@@ -1285,10 +1285,10 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = INT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:216:5: ( ( '0' .. '9' )+ )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:216:7: ( '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:218:5: ( ( '0' .. '9' )+ )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:218:7: ( '0' .. '9' )+
 			{
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:216:7: ( '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:218:7: ( '0' .. '9' )+
 			int cnt14=0;
 			loop14:
 			while (true) {
@@ -1337,14 +1337,14 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = FLOAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:220:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:222:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
 			int alt21=3;
 			alt21 = dfa21.predict(input);
 			switch (alt21) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:220:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:222:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
 					{
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:220:9: ( '0' .. '9' )+
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:222:9: ( '0' .. '9' )+
 					int cnt15=0;
 					loop15:
 					while (true) {
@@ -1378,7 +1378,7 @@ public class GCODELexer extends Lexer {
 					}
 
 					match('.'); 
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:220:25: ( '0' .. '9' )*
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:222:25: ( '0' .. '9' )*
 					loop16:
 					while (true) {
 						int alt16=2;
@@ -1407,7 +1407,7 @@ public class GCODELexer extends Lexer {
 						}
 					}
 
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:220:37: ( EXPONENT )?
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:222:37: ( EXPONENT )?
 					int alt17=2;
 					int LA17_0 = input.LA(1);
 					if ( (LA17_0=='E'||LA17_0=='e') ) {
@@ -1415,7 +1415,7 @@ public class GCODELexer extends Lexer {
 					}
 					switch (alt17) {
 						case 1 :
-							// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:220:37: EXPONENT
+							// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:222:37: EXPONENT
 							{
 							mEXPONENT(); 
 
@@ -1427,10 +1427,10 @@ public class GCODELexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:221:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:223:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
 					{
 					match('.'); 
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:221:13: ( '0' .. '9' )+
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:223:13: ( '0' .. '9' )+
 					int cnt18=0;
 					loop18:
 					while (true) {
@@ -1463,7 +1463,7 @@ public class GCODELexer extends Lexer {
 						cnt18++;
 					}
 
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:221:25: ( EXPONENT )?
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:223:25: ( EXPONENT )?
 					int alt19=2;
 					int LA19_0 = input.LA(1);
 					if ( (LA19_0=='E'||LA19_0=='e') ) {
@@ -1471,7 +1471,7 @@ public class GCODELexer extends Lexer {
 					}
 					switch (alt19) {
 						case 1 :
-							// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:221:25: EXPONENT
+							// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:223:25: EXPONENT
 							{
 							mEXPONENT(); 
 
@@ -1483,9 +1483,9 @@ public class GCODELexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:222:9: ( '0' .. '9' )+ EXPONENT
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:224:9: ( '0' .. '9' )+ EXPONENT
 					{
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:222:9: ( '0' .. '9' )+
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:224:9: ( '0' .. '9' )+
 					int cnt20=0;
 					loop20:
 					while (true) {
@@ -1538,7 +1538,7 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:226:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:228:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' | '/*' ( options {greedy=false; } : . )* '*/' )
 			int alt25=2;
 			int LA25_0 = input.LA(1);
 			if ( (LA25_0=='/') ) {
@@ -1572,11 +1572,11 @@ public class GCODELexer extends Lexer {
 
 			switch (alt25) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:226:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:228:9: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
 					{
 					match("//"); 
 
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:226:14: (~ ( '\\n' | '\\r' ) )*
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:228:14: (~ ( '\\n' | '\\r' ) )*
 					loop22:
 					while (true) {
 						int alt22=2;
@@ -1605,7 +1605,7 @@ public class GCODELexer extends Lexer {
 						}
 					}
 
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:226:28: ( '\\r' )?
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:228:28: ( '\\r' )?
 					int alt23=2;
 					int LA23_0 = input.LA(1);
 					if ( (LA23_0=='\r') ) {
@@ -1613,7 +1613,7 @@ public class GCODELexer extends Lexer {
 					}
 					switch (alt23) {
 						case 1 :
-							// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:226:28: '\\r'
+							// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:228:28: '\\r'
 							{
 							match('\r'); 
 							}
@@ -1626,11 +1626,11 @@ public class GCODELexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:227:9: '/*' ( options {greedy=false; } : . )* '*/'
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:229:9: '/*' ( options {greedy=false; } : . )* '*/'
 					{
 					match("/*"); 
 
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:227:14: ( options {greedy=false; } : . )*
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:229:14: ( options {greedy=false; } : . )*
 					loop24:
 					while (true) {
 						int alt24=2;
@@ -1651,7 +1651,7 @@ public class GCODELexer extends Lexer {
 
 						switch (alt24) {
 						case 1 :
-							// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:227:42: .
+							// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:229:42: .
 							{
 							matchAny(); 
 							}
@@ -1683,8 +1683,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:230:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:230:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:232:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:232:9: ( ' ' | '\\t' | '\\r' | '\\n' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
 				input.consume();
@@ -1711,11 +1711,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:238:5: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:238:8: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:240:5: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:240:8: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
 			{
 			match('\"'); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:238:12: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:240:12: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
 			loop26:
 			while (true) {
 				int alt26=3;
@@ -1729,14 +1729,14 @@ public class GCODELexer extends Lexer {
 
 				switch (alt26) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:238:14: ESC_SEQ
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:240:14: ESC_SEQ
 					{
 					mESC_SEQ(); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:238:24: ~ ( '\\\\' | '\"' )
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:240:24: ~ ( '\\\\' | '\"' )
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -1771,11 +1771,11 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = CHAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:241:5: ( '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\'' )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:241:8: '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\''
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:243:5: ( '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\'' )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:243:8: '\\'' ( ESC_SEQ |~ ( '\\'' | '\\\\' ) ) '\\''
 			{
 			match('\''); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:241:13: ( ESC_SEQ |~ ( '\\'' | '\\\\' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:243:13: ( ESC_SEQ |~ ( '\\'' | '\\\\' ) )
 			int alt27=2;
 			int LA27_0 = input.LA(1);
 			if ( (LA27_0=='\\') ) {
@@ -1793,14 +1793,14 @@ public class GCODELexer extends Lexer {
 
 			switch (alt27) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:241:15: ESC_SEQ
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:243:15: ESC_SEQ
 					{
 					mESC_SEQ(); 
 
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:241:25: ~ ( '\\'' | '\\\\' )
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:243:25: ~ ( '\\'' | '\\\\' )
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -1830,8 +1830,8 @@ public class GCODELexer extends Lexer {
 	// $ANTLR start "EXPONENT"
 	public final void mEXPONENT() throws RecognitionException {
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:246:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:246:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:248:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:248:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
 				input.consume();
@@ -1841,7 +1841,7 @@ public class GCODELexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:246:22: ( '+' | '-' )?
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:248:22: ( '+' | '-' )?
 			int alt28=2;
 			int LA28_0 = input.LA(1);
 			if ( (LA28_0=='+'||LA28_0=='-') ) {
@@ -1864,7 +1864,7 @@ public class GCODELexer extends Lexer {
 
 			}
 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:246:33: ( '0' .. '9' )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:248:33: ( '0' .. '9' )+
 			int cnt29=0;
 			loop29:
 			while (true) {
@@ -1909,7 +1909,7 @@ public class GCODELexer extends Lexer {
 	// $ANTLR start "HEX_DIGIT"
 	public final void mHEX_DIGIT() throws RecognitionException {
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:249:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:251:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
 			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'F')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
@@ -1932,7 +1932,7 @@ public class GCODELexer extends Lexer {
 	// $ANTLR start "ESC_SEQ"
 	public final void mESC_SEQ() throws RecognitionException {
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:253:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:255:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
 			int alt30=3;
 			int LA30_0 = input.LA(1);
 			if ( (LA30_0=='\\') ) {
@@ -1987,7 +1987,7 @@ public class GCODELexer extends Lexer {
 
 			switch (alt30) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:253:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:255:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
 					{
 					match('\\'); 
 					if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -2001,14 +2001,14 @@ public class GCODELexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:254:9: UNICODE_ESC
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:256:9: UNICODE_ESC
 					{
 					mUNICODE_ESC(); 
 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:255:9: OCTAL_ESC
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:257:9: OCTAL_ESC
 					{
 					mOCTAL_ESC(); 
 
@@ -2026,7 +2026,7 @@ public class GCODELexer extends Lexer {
 	// $ANTLR start "OCTAL_ESC"
 	public final void mOCTAL_ESC() throws RecognitionException {
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:260:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:262:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
 			int alt31=3;
 			int LA31_0 = input.LA(1);
 			if ( (LA31_0=='\\') ) {
@@ -2084,7 +2084,7 @@ public class GCODELexer extends Lexer {
 
 			switch (alt31) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:260:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:262:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '3') ) {
@@ -2114,7 +2114,7 @@ public class GCODELexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:261:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:263:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '7') ) {
@@ -2136,7 +2136,7 @@ public class GCODELexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:262:9: '\\\\' ( '0' .. '7' )
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:264:9: '\\\\' ( '0' .. '7' )
 					{
 					match('\\'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '7') ) {
@@ -2161,8 +2161,8 @@ public class GCODELexer extends Lexer {
 	// $ANTLR start "UNICODE_ESC"
 	public final void mUNICODE_ESC() throws RecognitionException {
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:267:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:267:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:269:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:269:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
 			{
 			match('\\'); 
 			match('u'); 
@@ -2188,8 +2188,8 @@ public class GCODELexer extends Lexer {
 		try {
 			int _type = SCAN_ERROR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:269:12: ( . )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:269:14: .
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:271:12: ( . )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:271:14: .
 			{
 			matchAny(); 
 			}
@@ -2512,7 +2512,7 @@ public class GCODELexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "219:1: FLOAT : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
+			return "221:1: FLOAT : ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT );";
 		}
 	}
 

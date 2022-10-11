@@ -121,12 +121,12 @@ public class GCODEHandler {
 	}
 	
 	public void addExit (List<String> list, String pd) {
-		System.out.println("Movimento-> "+pd);
+		//System.out.println("Movimento-> "+pd);
 		list.add(pd);
 	}
 	
 	public void addMovement (List<String> list, String pd) {
-		System.out.println("Movimento-> "+pd);
+		//System.out.println("Movimento-> "+pd);
 		list.add(pd);
 	}
 	
@@ -142,6 +142,13 @@ public class GCODEHandler {
 			System.out.print(config.getText()+" ");
 		}
 		System.out.println();
+	}
+	
+	public void printCommand(List<String> x) {
+		for(String config:x){
+			System.out.println("Movimento-> "+config);
+		}
+		//System.out.println();
 	}
 	
 	public void printExit(List<String> e) {
@@ -410,7 +417,6 @@ public class GCODEHandler {
 			default: return "Sconosciuto";
 		}
 	}*/
-
 
 
 

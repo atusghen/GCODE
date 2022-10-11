@@ -71,7 +71,9 @@ M05 M09 M30 (exit)
 // Parser definition
 gcode returns [List<String> p]
 	//:	(uno=config x=gcommall)+ due=exit	{c=uno; p=x; e=due;}
-	:	(c=config x=gcommall e=exit) {x=p; h.printConfig(c); h.printExit(e);}
+	:	(c=config { h.printConfig(c);}
+		x=gcommall {p=x; h.printCommand(p);}
+		e=exit)   {h.printExit(e);}
 	;
 	
 exit returns [List<String> listMove]
@@ -113,7 +115,7 @@ gcommall returns [List<String> listMove]
 @init { listMove = new ArrayList<String>();}
 	:	mv=gcommcoordfast {h.addMovement (listMove, mv);} 
 		(mu=gcommcoordnoint { h.addMovement (listMove, mu);}
-		| ma=gcommcoordint)+ { h.addMovement (listMove, ma);}
+		| ma=gcommcoordint { h.addMovement (listMove, ma);} )+
 	; 
 	
 	

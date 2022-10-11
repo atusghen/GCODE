@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g 2022-10-10 20:40:21
+// $ANTLR 3.5.1 C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g 2022-10-11 10:07:55
 
 	package GCODECompiler;
 	import GCODECompiler.GCODEHandler;
@@ -139,17 +139,19 @@ public class GCODEParser extends Parser {
 			c=config();
 			state._fsp--;
 
-			pushFollow(FOLLOW_gcommall_in_gcode67);
+			 h.printConfig(c);
+			pushFollow(FOLLOW_gcommall_in_gcode71);
 			x=gcommall();
 			state._fsp--;
 
-			pushFollow(FOLLOW_exit_in_gcode71);
+			p=x; h.printCommand(p);
+			pushFollow(FOLLOW_exit_in_gcode79);
 			e=exit();
 			state._fsp--;
 
 			}
 
-			x=p; h.printConfig(c); h.printExit(e);
+			h.printExit(e);
 			}
 
 		}
@@ -167,7 +169,7 @@ public class GCODEParser extends Parser {
 
 
 	// $ANTLR start "exit"
-	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:77:1: exit returns [List<String> listMove] : mv= gcommcoordfast e= mconfig ;
+	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:79:1: exit returns [List<String> listMove] : mv= gcommcoordfast e= mconfig ;
 	public final List<String> exit() throws RecognitionException {
 		List<String> listMove = null;
 
@@ -177,15 +179,15 @@ public class GCODEParser extends Parser {
 
 		 listMove = new ArrayList<String>();
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:79:2: (mv= gcommcoordfast e= mconfig )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:79:4: mv= gcommcoordfast e= mconfig
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:81:2: (mv= gcommcoordfast e= mconfig )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:81:4: mv= gcommcoordfast e= mconfig
 			{
-			pushFollow(FOLLOW_gcommcoordfast_in_exit97);
+			pushFollow(FOLLOW_gcommcoordfast_in_exit107);
 			mv=gcommcoordfast();
 			state._fsp--;
 
 			h.addExit (listMove, mv);
-			pushFollow(FOLLOW_mconfig_in_exit109);
+			pushFollow(FOLLOW_mconfig_in_exit119);
 			e=mconfig();
 			state._fsp--;
 
@@ -207,7 +209,7 @@ public class GCODEParser extends Parser {
 
 
 	// $ANTLR start "config"
-	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:84:1: config returns [List<Token> s] : a= GCODESCOORD b= TCODES c= MCODES (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )? e= mconfig ;
+	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:86:1: config returns [List<Token> s] : a= GCODESCOORD b= TCODES c= MCODES (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )? e= mconfig ;
 	public final List<Token> config() throws RecognitionException {
 		List<Token> s = null;
 
@@ -223,16 +225,16 @@ public class GCODEParser extends Parser {
 
 		 s = new ArrayList<Token>();
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:86:2: (a= GCODESCOORD b= TCODES c= MCODES (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )? e= mconfig )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:86:4: a= GCODESCOORD b= TCODES c= MCODES (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )? e= mconfig
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:88:2: (a= GCODESCOORD b= TCODES c= MCODES (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )? e= mconfig )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:88:4: a= GCODESCOORD b= TCODES c= MCODES (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )? e= mconfig
 			{
-			a=(Token)match(input,GCODESCOORD,FOLLOW_GCODESCOORD_in_config133); 
+			a=(Token)match(input,GCODESCOORD,FOLLOW_GCODESCOORD_in_config143); 
 			s.add(a);
-			b=(Token)match(input,TCODES,FOLLOW_TCODES_in_config141); 
+			b=(Token)match(input,TCODES,FOLLOW_TCODES_in_config151); 
 			s.add(b);
-			c=(Token)match(input,MCODES,FOLLOW_MCODES_in_config150); 
+			c=(Token)match(input,MCODES,FOLLOW_MCODES_in_config160); 
 			s.add(c);
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:90:3: (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )?
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:92:3: (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )?
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0==GCODESF) ) {
@@ -240,19 +242,19 @@ public class GCODEParser extends Parser {
 			}
 			switch (alt1) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:90:4: a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:92:4: a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES
 					{
-					a1=(Token)match(input,GCODESF,FOLLOW_GCODESF_in_config163); 
-					b1=(Token)match(input,GCODESS,FOLLOW_GCODESS_in_config167); 
-					c1=(Token)match(input,FCODES,FOLLOW_FCODES_in_config171); 
-					d1=(Token)match(input,SCODES,FOLLOW_SCODES_in_config175); 
+					a1=(Token)match(input,GCODESF,FOLLOW_GCODESF_in_config173); 
+					b1=(Token)match(input,GCODESS,FOLLOW_GCODESS_in_config177); 
+					c1=(Token)match(input,FCODES,FOLLOW_FCODES_in_config181); 
+					d1=(Token)match(input,SCODES,FOLLOW_SCODES_in_config185); 
 					if(a1!=null && b1!=null && c1!=null && d1!=null) s.add(a1); s.add(b1); s.add(c1); s.add(d1);
 					}
 					break;
 
 			}
 
-			pushFollow(FOLLOW_mconfig_in_config185);
+			pushFollow(FOLLOW_mconfig_in_config195);
 			e=mconfig();
 			state._fsp--;
 
@@ -275,7 +277,7 @@ public class GCODEParser extends Parser {
 
 
 	// $ANTLR start "mconfig"
-	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:97:1: mconfig returns [List<Token> list] : temp= ( MCODES )* ;
+	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:99:1: mconfig returns [List<Token> list] : temp= ( MCODES )* ;
 	public final List<Token> mconfig() throws RecognitionException {
 		List<Token> list = null;
 
@@ -284,10 +286,10 @@ public class GCODEParser extends Parser {
 
 		 list = new ArrayList<Token>();
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:99:2: (temp= ( MCODES )* )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:100:2: temp= ( MCODES )*
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:101:2: (temp= ( MCODES )* )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:102:2: temp= ( MCODES )*
 			{
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:100:7: ( MCODES )*
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:102:7: ( MCODES )*
 			loop2:
 			while (true) {
 				int alt2=2;
@@ -298,9 +300,9 @@ public class GCODEParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:100:8: MCODES
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:102:8: MCODES
 					{
-					temp=(Token)match(input,MCODES,FOLLOW_MCODES_in_mconfig214); 
+					temp=(Token)match(input,MCODES,FOLLOW_MCODES_in_mconfig224); 
 					h.addMCode(list,temp);
 					}
 					break;
@@ -327,7 +329,7 @@ public class GCODEParser extends Parser {
 
 
 	// $ANTLR start "otherconfig"
-	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:104:1: otherconfig returns [List<Token> s] : a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES ;
+	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:106:1: otherconfig returns [List<Token> s] : a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES ;
 	public final List<Token> otherconfig() throws RecognitionException {
 		List<Token> s = null;
 
@@ -339,13 +341,13 @@ public class GCODEParser extends Parser {
 
 		 s = new ArrayList<Token>();
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:106:2: (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:107:3: a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:108:2: (a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:109:3: a1= GCODESF b1= GCODESS c1= FCODES d1= SCODES
 			{
-			a1=(Token)match(input,GCODESF,FOLLOW_GCODESF_in_otherconfig245); 
-			b1=(Token)match(input,GCODESS,FOLLOW_GCODESS_in_otherconfig249); 
-			c1=(Token)match(input,FCODES,FOLLOW_FCODES_in_otherconfig253); 
-			d1=(Token)match(input,SCODES,FOLLOW_SCODES_in_otherconfig257); 
+			a1=(Token)match(input,GCODESF,FOLLOW_GCODESF_in_otherconfig255); 
+			b1=(Token)match(input,GCODESS,FOLLOW_GCODESS_in_otherconfig259); 
+			c1=(Token)match(input,FCODES,FOLLOW_FCODES_in_otherconfig263); 
+			d1=(Token)match(input,SCODES,FOLLOW_SCODES_in_otherconfig267); 
 			s.add(a1); s.add(b1); s.add(c1); s.add(d1);
 			}
 
@@ -364,7 +366,7 @@ public class GCODEParser extends Parser {
 
 
 	// $ANTLR start "gcommall"
-	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:112:1: gcommall returns [List<String> listMove] : mv= gcommcoordfast (mu= gcommcoordnoint |ma= gcommcoordint )+ ;
+	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:114:1: gcommall returns [List<String> listMove] : mv= gcommcoordfast (mu= gcommcoordnoint |ma= gcommcoordint )+ ;
 	public final List<String> gcommall() throws RecognitionException {
 		List<String> listMove = null;
 
@@ -375,15 +377,15 @@ public class GCODEParser extends Parser {
 
 		 listMove = new ArrayList<String>();
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:114:2: (mv= gcommcoordfast (mu= gcommcoordnoint |ma= gcommcoordint )+ )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:114:4: mv= gcommcoordfast (mu= gcommcoordnoint |ma= gcommcoordint )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:116:2: (mv= gcommcoordfast (mu= gcommcoordnoint |ma= gcommcoordint )+ )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:116:4: mv= gcommcoordfast (mu= gcommcoordnoint |ma= gcommcoordint )+
 			{
-			pushFollow(FOLLOW_gcommcoordfast_in_gcommall283);
+			pushFollow(FOLLOW_gcommcoordfast_in_gcommall293);
 			mv=gcommcoordfast();
 			state._fsp--;
 
 			h.addMovement (listMove, mv);
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:115:3: (mu= gcommcoordnoint |ma= gcommcoordint )+
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:117:3: (mu= gcommcoordnoint |ma= gcommcoordint )+
 			int cnt3=0;
 			loop3:
 			while (true) {
@@ -398,9 +400,9 @@ public class GCODEParser extends Parser {
 
 				switch (alt3) {
 				case 1 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:115:4: mu= gcommcoordnoint
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:117:4: mu= gcommcoordnoint
 					{
-					pushFollow(FOLLOW_gcommcoordnoint_in_gcommall293);
+					pushFollow(FOLLOW_gcommcoordnoint_in_gcommall303);
 					mu=gcommcoordnoint();
 					state._fsp--;
 
@@ -408,12 +410,13 @@ public class GCODEParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:116:5: ma= gcommcoordint
+					// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:118:5: ma= gcommcoordint
 					{
-					pushFollow(FOLLOW_gcommcoordint_in_gcommall303);
+					pushFollow(FOLLOW_gcommcoordint_in_gcommall313);
 					ma=gcommcoordint();
 					state._fsp--;
 
+					 h.addMovement (listMove, ma);
 					}
 					break;
 
@@ -425,7 +428,6 @@ public class GCODEParser extends Parser {
 				cnt3++;
 			}
 
-			 h.addMovement (listMove, ma);
 			}
 
 		}
@@ -443,7 +445,7 @@ public class GCODEParser extends Parser {
 
 
 	// $ANTLR start "gcommcoordfast"
-	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:120:1: gcommcoordfast returns [String mv] : g= GCODESFAST (x= XCOORD y= YCOORD ) ;
+	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:122:1: gcommcoordfast returns [String mv] : g= GCODESFAST (x= XCOORD y= YCOORD ) ;
 	public final String gcommcoordfast() throws RecognitionException {
 		String mv = null;
 
@@ -453,15 +455,15 @@ public class GCODEParser extends Parser {
 		Token y=null;
 
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:121:2: (g= GCODESFAST (x= XCOORD y= YCOORD ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:121:4: g= GCODESFAST (x= XCOORD y= YCOORD )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:123:2: (g= GCODESFAST (x= XCOORD y= YCOORD ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:123:4: g= GCODESFAST (x= XCOORD y= YCOORD )
 			{
-			g=(Token)match(input,GCODESFAST,FOLLOW_GCODESFAST_in_gcommcoordfast328); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:121:17: (x= XCOORD y= YCOORD )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:121:18: x= XCOORD y= YCOORD
+			g=(Token)match(input,GCODESFAST,FOLLOW_GCODESFAST_in_gcommcoordfast339); 
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:123:17: (x= XCOORD y= YCOORD )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:123:18: x= XCOORD y= YCOORD
 			{
-			x=(Token)match(input,XCOORD,FOLLOW_XCOORD_in_gcommcoordfast333); 
-			y=(Token)match(input,YCOORD,FOLLOW_YCOORD_in_gcommcoordfast337); 
+			x=(Token)match(input,XCOORD,FOLLOW_XCOORD_in_gcommcoordfast344); 
+			y=(Token)match(input,YCOORD,FOLLOW_YCOORD_in_gcommcoordfast348); 
 			}
 
 			mv = h.createMovement (g, x, y);
@@ -482,7 +484,7 @@ public class GCODEParser extends Parser {
 
 
 	// $ANTLR start "gcommcoordnoint"
-	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:125:1: gcommcoordnoint returns [String mu] : g= GCODESINT (x= XCOORD y= YCOORD ) ;
+	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:127:1: gcommcoordnoint returns [String mu] : g= GCODESINT (x= XCOORD y= YCOORD ) ;
 	public final String gcommcoordnoint() throws RecognitionException {
 		String mu = null;
 
@@ -492,15 +494,15 @@ public class GCODEParser extends Parser {
 		Token y=null;
 
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:126:2: (g= GCODESINT (x= XCOORD y= YCOORD ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:126:4: g= GCODESINT (x= XCOORD y= YCOORD )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:128:2: (g= GCODESINT (x= XCOORD y= YCOORD ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:128:4: g= GCODESINT (x= XCOORD y= YCOORD )
 			{
-			g=(Token)match(input,GCODESINT,FOLLOW_GCODESINT_in_gcommcoordnoint358); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:126:16: (x= XCOORD y= YCOORD )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:126:17: x= XCOORD y= YCOORD
+			g=(Token)match(input,GCODESINT,FOLLOW_GCODESINT_in_gcommcoordnoint369); 
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:128:16: (x= XCOORD y= YCOORD )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:128:17: x= XCOORD y= YCOORD
 			{
-			x=(Token)match(input,XCOORD,FOLLOW_XCOORD_in_gcommcoordnoint363); 
-			y=(Token)match(input,YCOORD,FOLLOW_YCOORD_in_gcommcoordnoint367); 
+			x=(Token)match(input,XCOORD,FOLLOW_XCOORD_in_gcommcoordnoint374); 
+			y=(Token)match(input,YCOORD,FOLLOW_YCOORD_in_gcommcoordnoint378); 
 			}
 
 			mu = h.createMovement (g, x, y);
@@ -521,7 +523,7 @@ public class GCODEParser extends Parser {
 
 
 	// $ANTLR start "gcommcoordint"
-	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:129:1: gcommcoordint returns [String mz] : g= GCODESINTCIRC (x= XCOORD y= YCOORD ) (i= ICOORD j= JCOORD ) ;
+	// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:131:1: gcommcoordint returns [String mz] : g= GCODESINTCIRC (x= XCOORD y= YCOORD ) (i= ICOORD j= JCOORD ) ;
 	public final String gcommcoordint() throws RecognitionException {
 		String mz = null;
 
@@ -533,22 +535,22 @@ public class GCODEParser extends Parser {
 		Token j=null;
 
 		try {
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:130:2: (g= GCODESINTCIRC (x= XCOORD y= YCOORD ) (i= ICOORD j= JCOORD ) )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:130:4: g= GCODESINTCIRC (x= XCOORD y= YCOORD ) (i= ICOORD j= JCOORD )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:132:2: (g= GCODESINTCIRC (x= XCOORD y= YCOORD ) (i= ICOORD j= JCOORD ) )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:132:4: g= GCODESINTCIRC (x= XCOORD y= YCOORD ) (i= ICOORD j= JCOORD )
 			{
-			g=(Token)match(input,GCODESINTCIRC,FOLLOW_GCODESINTCIRC_in_gcommcoordint388); 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:130:20: (x= XCOORD y= YCOORD )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:130:21: x= XCOORD y= YCOORD
+			g=(Token)match(input,GCODESINTCIRC,FOLLOW_GCODESINTCIRC_in_gcommcoordint399); 
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:132:20: (x= XCOORD y= YCOORD )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:132:21: x= XCOORD y= YCOORD
 			{
-			x=(Token)match(input,XCOORD,FOLLOW_XCOORD_in_gcommcoordint393); 
-			y=(Token)match(input,YCOORD,FOLLOW_YCOORD_in_gcommcoordint397); 
+			x=(Token)match(input,XCOORD,FOLLOW_XCOORD_in_gcommcoordint404); 
+			y=(Token)match(input,YCOORD,FOLLOW_YCOORD_in_gcommcoordint408); 
 			}
 
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:130:40: (i= ICOORD j= JCOORD )
-			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:130:41: i= ICOORD j= JCOORD
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:132:40: (i= ICOORD j= JCOORD )
+			// C:\\Users\\greco\\git\\GCODE\\src\\GCODECompiler\\GCODE.g:132:41: i= ICOORD j= JCOORD
 			{
-			i=(Token)match(input,ICOORD,FOLLOW_ICOORD_in_gcommcoordint403); 
-			j=(Token)match(input,JCOORD,FOLLOW_JCOORD_in_gcommcoordint407); 
+			i=(Token)match(input,ICOORD,FOLLOW_ICOORD_in_gcommcoordint414); 
+			j=(Token)match(input,JCOORD,FOLLOW_JCOORD_in_gcommcoordint418); 
 			}
 
 			mz = h.createMovement(g,x,y,i,y);
@@ -571,35 +573,35 @@ public class GCODEParser extends Parser {
 
 
 	public static final BitSet FOLLOW_config_in_gcode63 = new BitSet(new long[]{0x0000000000040000L});
-	public static final BitSet FOLLOW_gcommall_in_gcode67 = new BitSet(new long[]{0x0000000000040000L});
-	public static final BitSet FOLLOW_exit_in_gcode71 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_gcommcoordfast_in_exit97 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_mconfig_in_exit109 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_GCODESCOORD_in_config133 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_TCODES_in_config141 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_MCODES_in_config150 = new BitSet(new long[]{0x0000000010020000L});
-	public static final BitSet FOLLOW_GCODESF_in_config163 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_GCODESS_in_config167 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_FCODES_in_config171 = new BitSet(new long[]{0x0000001000000000L});
-	public static final BitSet FOLLOW_SCODES_in_config175 = new BitSet(new long[]{0x0000000010000000L});
-	public static final BitSet FOLLOW_mconfig_in_config185 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_MCODES_in_mconfig214 = new BitSet(new long[]{0x0000000010000002L});
-	public static final BitSet FOLLOW_GCODESF_in_otherconfig245 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_GCODESS_in_otherconfig249 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_FCODES_in_otherconfig253 = new BitSet(new long[]{0x0000001000000000L});
-	public static final BitSet FOLLOW_SCODES_in_otherconfig257 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_gcommcoordfast_in_gcommall283 = new BitSet(new long[]{0x0000000000180000L});
-	public static final BitSet FOLLOW_gcommcoordnoint_in_gcommall293 = new BitSet(new long[]{0x0000000000180002L});
-	public static final BitSet FOLLOW_gcommcoordint_in_gcommall303 = new BitSet(new long[]{0x0000000000180002L});
-	public static final BitSet FOLLOW_GCODESFAST_in_gcommcoordfast328 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_XCOORD_in_gcommcoordfast333 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_YCOORD_in_gcommcoordfast337 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_GCODESINT_in_gcommcoordnoint358 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_XCOORD_in_gcommcoordnoint363 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_YCOORD_in_gcommcoordnoint367 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_GCODESINTCIRC_in_gcommcoordint388 = new BitSet(new long[]{0x0000040000000000L});
-	public static final BitSet FOLLOW_XCOORD_in_gcommcoordint393 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_YCOORD_in_gcommcoordint397 = new BitSet(new long[]{0x0000000000800000L});
-	public static final BitSet FOLLOW_ICOORD_in_gcommcoordint403 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_JCOORD_in_gcommcoordint407 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_gcommall_in_gcode71 = new BitSet(new long[]{0x0000000000040000L});
+	public static final BitSet FOLLOW_exit_in_gcode79 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_gcommcoordfast_in_exit107 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_mconfig_in_exit119 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_GCODESCOORD_in_config143 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_TCODES_in_config151 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_MCODES_in_config160 = new BitSet(new long[]{0x0000000010020000L});
+	public static final BitSet FOLLOW_GCODESF_in_config173 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_GCODESS_in_config177 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_FCODES_in_config181 = new BitSet(new long[]{0x0000001000000000L});
+	public static final BitSet FOLLOW_SCODES_in_config185 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_mconfig_in_config195 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MCODES_in_mconfig224 = new BitSet(new long[]{0x0000000010000002L});
+	public static final BitSet FOLLOW_GCODESF_in_otherconfig255 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_GCODESS_in_otherconfig259 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_FCODES_in_otherconfig263 = new BitSet(new long[]{0x0000001000000000L});
+	public static final BitSet FOLLOW_SCODES_in_otherconfig267 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_gcommcoordfast_in_gcommall293 = new BitSet(new long[]{0x0000000000180000L});
+	public static final BitSet FOLLOW_gcommcoordnoint_in_gcommall303 = new BitSet(new long[]{0x0000000000180002L});
+	public static final BitSet FOLLOW_gcommcoordint_in_gcommall313 = new BitSet(new long[]{0x0000000000180002L});
+	public static final BitSet FOLLOW_GCODESFAST_in_gcommcoordfast339 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_XCOORD_in_gcommcoordfast344 = new BitSet(new long[]{0x0000080000000000L});
+	public static final BitSet FOLLOW_YCOORD_in_gcommcoordfast348 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_GCODESINT_in_gcommcoordnoint369 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_XCOORD_in_gcommcoordnoint374 = new BitSet(new long[]{0x0000080000000000L});
+	public static final BitSet FOLLOW_YCOORD_in_gcommcoordnoint378 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_GCODESINTCIRC_in_gcommcoordint399 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_XCOORD_in_gcommcoordint404 = new BitSet(new long[]{0x0000080000000000L});
+	public static final BitSet FOLLOW_YCOORD_in_gcommcoordint408 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_ICOORD_in_gcommcoordint414 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_JCOORD_in_gcommcoordint418 = new BitSet(new long[]{0x0000000000000002L});
 }
