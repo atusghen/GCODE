@@ -37,11 +37,10 @@ import myPackage.Interfaccia;
 public class Interfaccia extends JPanel {
 	
     static JButton button = new JButton("Sfoglia");
-    static JCheckBox headerMode = new JCheckBox("Modalità Header", true);
-    static JCheckBox stdMode = new JCheckBox("Modalità Standard");
     static ButtonGroup topGroup = new ButtonGroup();
-    static JLabel winTitle = new JLabel("Simple ID3 Parser");
+    static JLabel winTitle = new JLabel("GCODE Parser");
     static JLabel spazio = new JLabel(" ");
+    static JLabel spazio1 = new JLabel(" ");
 	static JLabel titolo = new JLabel("TITOLO:");
 	static JLabel ti = new JLabel();
 	static JLabel artista = new JLabel("ARTISTA:");
@@ -57,7 +56,9 @@ public class Interfaccia extends JPanel {
     static JPanel infopanel = new JPanel();
     static JPanel infopanel1 = new JPanel();
     
-    static JFrame jF = new JFrame("SimpleID3");
+    static Graphic graphic;
+    
+    static JFrame jF = new JFrame("GCODE");
     
     
     public Interfaccia() throws IOException{
@@ -65,17 +66,27 @@ public class Interfaccia extends JPanel {
     	winTitle.setHorizontalAlignment(JLabel.CENTER);
     	winTitle.setVerticalAlignment(JLabel.CENTER);
     	winTitle.setFont(new Font("SansSerif", Font.BOLD, 20));
-    	infopanel1.setLayout(new BorderLayout());
-    	infopanel1.add(winTitle, BorderLayout.NORTH);
-    	infopanel1.setBackground(Color.WHITE);
+    	//infopanel1.setLayout(new BorderLayout());
+    	//infopanel1.add(winTitle, BorderLayout.NORTH);
+    	//infopanel1.setBackground(Color.WHITE);
     	//infopanel1.setOpaque(false);
     	
     	infopanel.setLayout(new GridBagLayout());
     	GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
 
+        infopanel.add(winTitle, gbc);
+        infopanel.add(spazio1, gbc);
         infopanel.add(button, gbc);
         infopanel.add(spazio, gbc);
+    	
+    	/*infopanel.setLayout(new BorderLayout());
+    	infopanel.add(winTitle, BorderLayout.NORTH);
+    	infopanel.add(button, BorderLayout.CENTER);
+    	infopanel.setBackground(Color.WHITE);
+    	infopanel.setOpaque(false);*/
+    	
+    	
         //infopanel.add(new JLabel("3+5="), gbc);
     	//GridLayout gridLayout  = new GridLayout(1, 2);
     	//gridLayout.setHgap(20);
@@ -97,65 +108,49 @@ public class Interfaccia extends JPanel {
         button.setBorder(compound);
         button.setFont(new Font("SansSerif", Font.PLAIN, 20));
         
-        stdMode.setBackground(Color.WHITE);
-        stdMode.setForeground(Color.BLACK);
-        stdMode.setFocusPainted(false);
-        stdMode.setBorderPainted(false);
-        stdMode.setFont(new Font("SansSerif", Font.PLAIN, 14));
-        stdMode.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        headerMode.setBackground(Color.WHITE);
-        headerMode.setForeground(Color.BLACK);
-        headerMode.setFocusPainted(false);
-        headerMode.setBorderPainted(false);
-        headerMode.setFont(new Font("SansSerif", Font.PLAIN, 14));
-        headerMode.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         
-        InputStream stream = getClass().getResourceAsStream("img/checkbox.png");
-        ImageIcon icon= new ImageIcon(ImageIO.read(stream));
         
-        stream = getClass().getResourceAsStream("img/check.png");
-        icon= new ImageIcon(ImageIO.read(stream));
+        InputStream stream;
+        ImageIcon icon;
         
-        stream = getClass().getResourceAsStream("img/check.png");
-        icon= new ImageIcon(ImageIO.read(stream));
-        stdMode.setSelectedIcon(icon);
-        
-        stream = getClass().getResourceAsStream("img/checkbox.png");
-        icon= new ImageIcon(ImageIO.read(stream));
-        stdMode.setIcon(icon);
-        
-        stream = getClass().getResourceAsStream("img/checkbox.png");
-        icon= new ImageIcon(ImageIO.read(stream));
-        headerMode.setIcon(icon);
-        
-        stream = getClass().getResourceAsStream("img/check.png");
-        icon= new ImageIcon(ImageIO.read(stream));
-        headerMode.setSelectedIcon(icon);
-        
-        /*checkbox128.setIcon(new ImageIcon(getClass().getResource("../img/checkbox.png")));
-        checkbox128.setSelectedIcon(new ImageIcon(getClass().getResource("../img/check.png")));
-        checkbox158.setIcon(new ImageIcon(getClass().getResource("../img/checkbox.png")));
-        checkbox158.setSelectedIcon(new ImageIcon(getClass().getResource("../img/check.png")));
-        mode.setIcon(new ImageIcon(getClass().getResource("../img/checkbox.png")));
-        mode.setSelectedIcon(new ImageIcon(getClass().getResource("../img/check.png")));*/
-        
-        topGroup.add(stdMode);
-        topGroup.add(headerMode);
         
         //infopanel.add(sp1);
         //infopanel.add(sp2);
         //infopanel.add(button);
-        infopanel.add(stdMode);
-        infopanel.add(headerMode);
         
-        infopanel1.add(infopanel);
+       infopanel1.setLayout(new GridBagLayout());
+       /*GridBagConstraints*/ gbc = new GridBagConstraints();
+
+    	// Row 0 - Filename
+    		// Col 0
+    	gbc.gridx = 0;
+    	gbc.gridy = 0;
+    	//gbc.insets = new Insets(5, 0, 0, 10);
+    	gbc.anchor = GridBagConstraints.LINE_START;
+    	infopanel1.add(infopanel, gbc);
+
+    	graphic = new Graphic();
+    		// Col 1
+    	gbc.gridx = 1;
+    	gbc.gridy = 0;
+    	gbc.anchor = GridBagConstraints.LINE_START;
+    	infopanel1.add(graphic, gbc);
+    	graphic.setVisible(false);
+    	
+    	
+    	infopanel1.setBackground(Color.WHITE);
+
+    	jF.pack();
+        
+        //infopanel1.add(infopanel);
         
         
         jF.getContentPane().add(infopanel1);
+        
         //jF.getContentPane().add(infopanel);
         //jF.setBackground(Color.WHITE);
         //ImageIcon ii = new ImageIcon(getClass().getResource("check.png"));
-        stream = getClass().getResourceAsStream("img/music.png");
+        stream = getClass().getResourceAsStream("img/icon.png");
         icon= new ImageIcon(ImageIO.read(stream));
         jF.setIconImage(icon.getImage());
         //jF.setIconImage(new ImageIcon(getClass().getResource("img/music.png")).getImage());
@@ -168,6 +163,13 @@ public class Interfaccia extends JPanel {
         button.addActionListener(new ActionListener() { 
     	    public void actionPerformed(ActionEvent e) { 
     	       startParsing(e);
+    	       graphic.setVisible(true);
+    	       graphic.repaint();
+    	       //infopanel.remove(spazio);
+    	       //jF.getContentPane().add(graphic);
+    	       infopanel.setPreferredSize(new Dimension(500, 500));
+    	       jF.pack();
+    	       jF.setLocationRelativeTo(null);
         }
        });
   
@@ -276,8 +278,6 @@ public class Interfaccia extends JPanel {
     	jF.pack();
     	
     	infopanel.remove(button);
-    	infopanel.remove(stdMode);
-    	infopanel.remove(headerMode);
     	infopanel.remove(spazio);
     	titolo.setVisible(true);
         ti.setVisible(true);
@@ -312,21 +312,16 @@ public class Interfaccia extends JPanel {
     	  JFileChooser fileChooser = new JFileChooser();
     	  fileChooser.setCurrentDirectory(new File("resources"));
     	  fileChooser.showOpenDialog(Interfaccia.this);
-    	  jF.setTitle("SimpleID3-" + fileChooser.getSelectedFile().getName());
+    	  jF.setTitle("GCODE - " + fileChooser.getSelectedFile().getName());
     	  return fileChooser.getSelectedFile().getPath();
     }
     
     private void startParsing(ActionEvent e) { 
-        /*try {
+        try {
         	ParserLauncher.avvio(this);
 		} catch (IOException | RecognitionException e1) {
 			e1.printStackTrace();
-		}*/
-    }
-
-    public boolean checkMode()
-    {
-    	return headerMode.isSelected() ? true:false;
+		}
     }
 }
 

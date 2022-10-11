@@ -21,7 +21,7 @@ options {
 		GCODEHandler h;
 
 	  //public SimpleID3Parser(FileReader fileIn) throws IOException {
-	  public GCODEParser(FileReader fileIn) throws IOException {			
+	  public GCODEParser(BufferedReader fileIn) throws IOException {			
 			this(new CommonTokenStream(
 							new GCODELexer(
 									new ANTLRReaderStream(fileIn))));
@@ -124,7 +124,7 @@ gcommcoordnoint returns [String mw]
 	;
 	
 gcommcoordint returns [String mx]
-	:	g=GCODESINTCIRC (x=XCOORD y=YCOORD) (i=ICOORD j=JCOORD) {mx = h.createMovement($g,$x,$y,$i,$y);}
+	:	g=GCODESINTCIRC (x=XCOORD y=YCOORD) (i=ICOORD j=JCOORD) {mx = h.createMovement($g,$x,$y,$i,$j);}
 	;
 	
 //Lexer definition

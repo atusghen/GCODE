@@ -1,16 +1,44 @@
 package myPackage;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import org.antlr.runtime.RecognitionException;
 
 import GCODECompiler.GCODEParser;
 
 public class ParserLauncher {
+	
+	public static InputStreamReader setReaderNoSearch(Interfaccia a) throws FileNotFoundException, IOException
+	{
+		InputStreamReader fileIn = new InputStreamReader(new FileInputStream(a.fileChooser()));
+		return fileIn;
+	}
+	
+	public static void avvio(Interfaccia a) throws FileNotFoundException, IOException, RecognitionException {
+		
+			GCODEParser parser= new GCODEParser(new BufferedReader(setReaderNoSearch(a)));
+			System.out.println ("Parsing con ANTLR");
+			parser.gcode();
+			if (parser.getErrorList().size() == 0)
+				System.out.println ("Parsing completato con successo");
+			else {
+				int i=0;
+				System.out.println ("Errori rilevati");
+				for (String msg : parser.getErrorList())
+					System.out.println (++i + " - " + msg);
+				}
+		
+		
+	}
+	
 	public static void main (String[] args) throws FileNotFoundException, IOException, RecognitionException {		
-	  	String fileName = ".\\resources\\input.file";
+	  	
+		/*String fileName = ".\\resources\\input.file";
 
 		System.out.println ("Parsing con ANTLR");
 		
@@ -26,9 +54,8 @@ public class ParserLauncher {
 			System.out.println ("Errori rilevati");
 			for (String msg : parser.getErrorList())
 				System.out.println (++i + " - " + msg);
-		}
-		
-		//Interfaccia a=new Interfaccia();
+		}*/
+		Interfaccia a=new Interfaccia();
 		
 	}
 }
