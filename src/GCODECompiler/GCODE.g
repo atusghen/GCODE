@@ -70,52 +70,47 @@ M05 M09 M30 (exit)
 
 // Parser definition
 gcode returns [List<String> p]
-	//:	(uno=config x=gcommall)+ due=exit	{c=uno; p=x; e=due;}
-	:	(c=config { h.printConfig(c);}
-		x=gcommall {p=x; h.printCommand(p);}
-		e=exit)   {h.printExit(e);}
+	:	(c=config	{h.printConfig(c);}
+		mov=gcommall	{p=mov; h.printCommand(mov);}
+		e=exit		{h.printExit(e);}
+			)
 	;
 	
-exit returns [List<String> listMove]
-@init { listMove = new ArrayList<String>();}
-	:	mv=gcommcoordfast {h.addExit (listMove, mv);} 
-		//MCODES+
-		e=mconfig {	if(e!=null){for(Token temp: e) {listMove.add(temp.getText());}}}
+exit returns [List<String> list]
+@init { list = new ArrayList<String>();}
+	:	mv=gcommcoordfast {h.addExit (list, mv);} 
+		//MCODES+ da sistemare perchè c'è il + ma questo prende *
+		e=mconfig {	if(e!=null) list.addAll(e);	//per le stringhe
+								//per i token		if(e!=null){for(Token temp: e) {listMove.add(temp.getText());}}
+		}
 	;
 
-config returns [List<Token> s]
-@init { s = new ArrayList<Token>();}
-	:	a=GCODESCOORD {s.add(a);}
-		b=TCODES 	{s.add(b);}
-		c=MCODES 	{s.add(c);}
-		//d=otherconfig?  
-		(a1=GCODESF b1=GCODESS c1=FCODES d1=SCODES {if(a1!=null && b1!=null && c1!=null && d1!=null) s.add($a1); s.add($b1); s.add($c1); s.add($d1);})?
-		e=mconfig
-	{   //if(d!=null){s.addAll(d);}  
-	{if(e!=null){s.addAll(e);}} }
+config returns [List<String> list]
+@init { list = new ArrayList<String>();}
+	:	a=GCODESCOORD	{list.add(a.getText());}
+		b=TCODES 	{list.add(b.getText());}
+		c=MCODES 	{list.add(c.getText());}
+		(a1=GCODESF b1=GCODESS c1=FCODES d1=SCODES 
+			{if(a1!=null && b1!=null && c1!=null && d1!=null) 
+				list.add($a1.getText()); list.add($b1.getText()); list.add($c1.getText()); list.add($d1.getText());
+				}
+			)?
+		d=mconfig 	{if(d!=null){list.addAll(d);}}
 	;
 
 	
-mconfig returns [List<Token> list]
-@init { list = new ArrayList<Token>();}
+mconfig returns [List<String> list]
+@init { list = new ArrayList<String>();}
 	:
-	temp=(MCODES {h.addMCode(list,temp);} )*  //non funge, prende solo l'ultima M di configurazione
-	;
-//questo perchè ogni lexerule deve corrispondere a una variabile per arrivare al java
-//non va bene se faccio a=(GCODESF GCODESS FCODES SCODES)
-otherconfig returns[List<Token> s]
-@init { s = new ArrayList<Token>();}
-	:
-		a1=GCODESF b1=GCODESS c1=FCODES d1=SCODES
-	{s.add($a1); s.add($b1); s.add($c1); s.add($d1);}
+		(a=MCODES {h.addMCode(list,a);} )* 
 	;
 
 
 gcommall returns [List<String> listMove]
 @init { listMove = new ArrayList<String>();}
 	:	mv=gcommcoordfast {h.addMovement (listMove, mv);} 
-		(mu=gcommcoordnoint { h.addMovement (listMove, mu);}
-		| ma=gcommcoordint { h.addMovement (listMove, ma);} )+
+		(mw=gcommcoordnoint { h.addMovement (listMove, mw);}
+		|mx=gcommcoordint { h.addMovement (listMove, mx);}    )+
 	; 
 	
 	
@@ -124,12 +119,12 @@ gcommcoordfast returns [String mv]
 	;
 
 
-gcommcoordnoint returns [String mu]
-	:	g=GCODESINT (x=XCOORD y=YCOORD) {mu = h.createMovement ($g, $x, $y);}
+gcommcoordnoint returns [String mw]
+	:	g=GCODESINT (x=XCOORD y=YCOORD) {mw = h.createMovement ($g, $x, $y);}
 	;
 	
-gcommcoordint returns [String mz]
-	:	g=GCODESINTCIRC (x=XCOORD y=YCOORD) (i=ICOORD j=JCOORD) {mz = h.createMovement($g,$x,$y,$i,$y);}
+gcommcoordint returns [String mx]
+	:	g=GCODESINTCIRC (x=XCOORD y=YCOORD) (i=ICOORD j=JCOORD) {mx = h.createMovement($g,$x,$y,$i,$y);}
 	;
 	
 //Lexer definition

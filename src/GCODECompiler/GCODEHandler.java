@@ -103,7 +103,8 @@ public class GCODEHandler {
 							
 		errorList.add(st); 
 	}
-	
+
+//utilizzato per creare movimenti e tagli G00 G01
 	public String createMovement (Token g, Token x, Token y) {
 		if (g != null && x != null && y != null) {
 			//System.out.println(g.getText() + ";" + x.getText() + ";" + y.getText());
@@ -112,6 +113,7 @@ public class GCODEHandler {
 		return null;
 	}
 	
+//utilizzato per creare stringe di tagli G02 G03
 	public String createMovement(Token g, Token x, Token y, Token i, Token j) {
 		if (g != null && x != null && y != null && i!=null & j!=null) {
 			//System.out.println(g.getText() + ";" + x.getText() + ";" + y.getText());
@@ -119,7 +121,8 @@ public class GCODEHandler {
 		}
 		return null;
 	}
-	
+
+
 	public void addExit (List<String> list, String pd) {
 		//System.out.println("Movimento-> "+pd);
 		list.add(pd);
@@ -130,16 +133,16 @@ public class GCODEHandler {
 		list.add(pd);
 	}
 	
-	public void addMCode(List<Token> list, Token temp) {
+	public void addMCode(List<String> list, Token temp) {
 		//System.out.println("MConfig-> "+temp.getText());
-		list.add(temp);
+		list.add(temp.getText());
 	}
 	
-	public void printConfig(List<Token> c)
+	public void printConfig(List<String> c)
 	{
 		System.out.print("Configurazione-> ");
-		for(Token config:c){
-			System.out.print(config.getText()+" ");
+		for(String config:c){
+			System.out.print(config+" ");
 		}
 		System.out.println();
 	}
