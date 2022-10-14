@@ -1,9 +1,7 @@
 package myPackage;
 
-import java.awt.BasicStroke;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +18,7 @@ public class Graphic extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		// Paint its background
-		super.paintComponent(g);
+		//super.paintComponent(g);
 		
 		int xorigin = 500, yorigin = 500;
 		int firstx = 0, firsty = 0;
@@ -57,6 +55,13 @@ public class Graphic extends JPanel {
 				float height = 2*r;
 				float startAngle = (float) (180/Math.PI*Math.atan2(y1-y0, x1-x0));
 				float endAngle = (float) (180/Math.PI*Math.atan2(y2-y0, x2-x0));
+				
+				float endDist = (float)Math.sqrt((x2-x0)*(x2-x0) + (y2-y0)*(y2-y0));
+				float startDist = (float)Math.sqrt((x1-x0)*(x1-x0) + (y1-y0)*(y1-y0));
+				
+				if(endDist != startDist) {
+					System.out.println("Il comando -> " + com + " non può collegare il punto: " + x1 + ";" + (500 - y1) + " con il punto " + x2 + ";" + (500 - y2) +".");
+				}
 				
 				//System.out.println(x0 + " " + y0 + " " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + r + " " + x + " " + y + " " + width + " " + height + " " + startAngle + " " + endAngle);
 				if(startAngle - endAngle < 0)
@@ -98,14 +103,7 @@ public class Graphic extends JPanel {
 		}
   }
 
-  public static void main(String[] args) {
-    JFrame frame = new JFrame("Sample Drawings Using a Graphics Object");
-    //frame.getContentPane().add(new Graphic());
-    frame.pack();
-    frame.setVisible(true);
-  }
-
-public static void Graphic(List<String> listcom) {
+public static void setArray(List<String> listcom) {
 	l = listcom;
 	
 }

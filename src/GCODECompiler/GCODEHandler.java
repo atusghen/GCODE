@@ -162,7 +162,7 @@ public class GCODEHandler {
 			data = "";
 			System.out.print("Movimento-> "+com+"	");
 			System.out.println(recognizeComm(com));
-			Graphic.Graphic(listcom);
+			Graphic.setArray(listcom);
 			data = "Movimento-> "+com+"	" + recognizeComm(com) + "\n";
 			Interfaccia.setData(data);
 		}
