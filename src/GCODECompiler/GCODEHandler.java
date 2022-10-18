@@ -23,14 +23,10 @@ public class GCODEHandler {
 	public static final int LAST_SYNTAX_ERROR = 10;		
 	public static final int MISSING_CHAR = 7;
 	//codici di errore semantici aggiunti
-	public static final int ALL_SLOT_LENGTH= 11;
-	public static final int TITLE_LENGTH= 12;
-	public static final int ARTIST_LENGTH= 13;
-	public static final int ALBUM_LENGTH= 14;
-	public static final int YEAR_LENGTH= 15;
-	public static final int COMMENT_LENGTH= 16;
-	//serve per lo stampa slot nel caso leggiamo la grammatica senza header
-	public int conta = 0;
+	public static final int LAST_SEMANTIC_ERROR = 20;
+	//codici di warning
+	public static final int CIRCLE_NOT_CONNECTING = 21;
+	public static final int LAST_WARNING = 30;
 
 	List<String> errorList;
 	TokenStream lexerStream;
@@ -64,45 +60,46 @@ public class GCODEHandler {
 		   st = st + m;		
 		else /*if(e.token.getType() == MISSING_CHAR)*/
 			st += " ('" + e.token.getText() + "')" + m;
-		errorList.add(st); 
+		errorList.add(st);
+		
 	}
+	
+	public void myErrorHandler(int code, String tk) {
+		this.myErrorHandler(code, null, tk);
+	}
+	
 
 	// Gestione errori semantici
-	void myErrorHandler(int code, Token tk) {
+	private void myErrorHandler(int code, Token tk, String warning) {
 		String st;
 		if (code == TOKEN_ERROR)
 			st = "Lexical Error " + code;
 		else if (code < LAST_SYNTAX_ERROR)  //è 10
 			st = "Syntax Error " + code;
-		else
-			st = "Errore semantico " + code; 
+		else if (code < LAST_SEMANTIC_ERROR)
+			st = "Errore semantico " + code;
+		else 
+			st = "Warning " + code;
 		
-		//output in base al'errore semantico
-		switch(code)
-		{
-			case 11: st=st+" (Data length error)"; break;
-			case 12: st=st+" (TITLE length > 30 char)"; break;
-			case 13: st=st+" (TITLE length < 30 char)"; break;
-			case 14: st=st+" (ARTIST length > 30 char)"; break;
-			case 15: st=st+" (ARTIST length < 30 char)"; break;
-			case 16: st=st+" (ALBUM length > 30 char)"; break;
-			case 17: st=st+" (ALBUM length < 30 char)"; break;
-			case 18: st=st+" (YEAR number of digits > 4)"; break;
-			case 19: st=st+" (YEAR number of digits < 4)"; break;
-			case 20: st=st+" (Wrong YEAR format 1900-CURRENT YEAR)"; break;
-			case 21: st=st+" (COMMENT length > 30 char)"; break;
-			case 22: st=st+" (COMMENT length < 30 char)"; break;
+		//output in base al codice
+		switch(code){
+		case 21:
+			if(warning!=null) st+=": "+warning;
+			st+="\nIl disegno potrebbe non essere visualizzato correttamente";
+			default:
+				break;
 		}
 		
 		
 		if (tk != null)
 			st += " avvenuto qui: "+tk.getText()+" @"+tk.getTokenIndex()+" [" + tk.getLine() + ", " + (tk.getCharPositionInLine()+1) + "]";
-		st += ". ";
+		st += ".\n ";
 
 		if (code == TOKEN_ERROR)
 			st += "Unrecognized token '" + tk.getText() + "'";
 							
 		errorList.add(st); 
+		System.out.println(st);
 	}
 
 //utilizzato per creare movimenti e tagli G00 G01
@@ -123,20 +120,23 @@ public class GCODEHandler {
 		return null;
 	}
 
-
-	public void addExit (List<String> list, String pd) {
-		//System.out.println("Movimento-> "+pd);
-		list.add(pd);
-	}
 	
 	public void addMovement (List<String> list, String pd) {
 		//System.out.println("Movimento-> "+pd);
-		list.add(pd);
+		if(pd!=null) list.add(pd);
 	}
 	
 	public void addMCode(List<String> list, Token temp) {
 		//System.out.println("MConfig-> "+temp.getText());
-		list.add(temp.getText());
+		if(temp!=null) list.add(temp.getText());
+	}
+	
+	public void addTokenToStringList(List<String> list, Token temp) {
+		if(temp!=null) list.add(temp.getText());
+	}
+	
+	public void addListToStringList(List<String> list, List<String> list2) {
+		if(list2!=null) list.addAll(list2);
 	}
 	
 	public void printConfig(List<String> c)

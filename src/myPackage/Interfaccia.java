@@ -254,7 +254,7 @@ public class Interfaccia extends JPanel {
       
         
         jF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      
+      //alla fine di tutto stampo anche gli errori
         
     }
     

@@ -20,7 +20,6 @@ options {
 @members {
 		GCODEHandler h;
 
-	  //public SimpleID3Parser(FileReader fileIn) throws IOException {
 	  public GCODEParser(BufferedReader fileIn) throws IOException {			
 			this(new CommonTokenStream(
 							new GCODELexer(
@@ -69,68 +68,63 @@ M05 M09 M30 (exit)
 */
 
 // Parser definition
-gcode returns [List<String> p]
+gCode //returns [List<String> p]
 	:	(c=config	{h.printConfig(c);}
-		mov=gcommall	{p=mov; h.printCommand(mov);}
+		mov=gCommAll	{h.printCommand(mov);}
 		e=exit		{h.printExit(e);}
 			)
 	;
 	
 exit returns [List<String> list]
 @init { list = new ArrayList<String>();}
-	:	mv=gcommcoordfast {h.addExit (list, mv);} 
-		//MCODES+ da sistemare perchè c'è il + ma questo prende *
-		e=mconfig {	if(e!=null) list.addAll(e);	//per le stringhe
-								//per i token		if(e!=null){for(Token temp: e) {listMove.add(temp.getText());}}
-		}
+	:	mv=gCommCoordFast	{h.addMovement (list, mv);} 
+		a=mConfig		{h.addListToStringList(list,a);}	
 	;
 
 config returns [List<String> list]
 @init { list = new ArrayList<String>();}
-	:	a=GCODESCOORD	{list.add(a.getText());}
-		b=TCODES 	{list.add(b.getText());}
-		c=MCODES 	{list.add(c.getText());}
-		(a1=GCODESF b1=GCODESS c1=FCODES d1=SCODES 
-			{if(a1!=null && b1!=null && c1!=null && d1!=null) 
-				list.add($a1.getText()); list.add($b1.getText()); list.add($c1.getText()); list.add($d1.getText());
-				}
+	:	a=GCODESCOORD	{h.addTokenToStringList(list,$a);}
+		b=TCODES 	{h.addTokenToStringList(list,$b);}
+		c=MCODES 	{h.addTokenToStringList(list,$c);}
+		(	a1=GCODESF	{h.addTokenToStringList(list,$a1);}
+			b1=GCODESS	{h.addTokenToStringList(list,$b1);}
+			c1=FCODES	{h.addTokenToStringList(list,$c1);}
+			d1=SCODES	{h.addTokenToStringList(list,$d1);}
 			)?
-		d=mconfig 	{if(d!=null){list.addAll(d);}}
+		d=mConfig 	{h.addListToStringList(list,d);}
 	;
 
 	
-mconfig returns [List<String> list]
+mConfig returns [List<String> list]
 @init { list = new ArrayList<String>();}
-	:
-		(a=MCODES {h.addMCode(list,a);} )* 
+	:	(	a=MCODES {h.addTokenToStringList(list,a);}
+			)* 
 	;
 
 
-gcommall returns [List<String> listMove]
+gCommAll returns [List<String> listMove]
 @init { listMove = new ArrayList<String>();}
-	:	mv=gcommcoordfast {h.addMovement (listMove, mv);} 
-		(mw=gcommcoordnoint { h.addMovement (listMove, mw);}
-		|mx=gcommcoordint { h.addMovement (listMove, mx);}    )+
+	:	mv=gCommCoordFast	{h.addMovement (listMove, mv);} 
+		(	mw=gCommCoordNoInt	{h.addMovement (listMove, mw);}
+		|	mx=gCommCoordInt	{h.addMovement (listMove, mx);}
+			)+
 	; 
 	
 	
-gcommcoordfast returns [String mv]
+gCommCoordFast returns [String mv]
 	:	g=GCODESFAST (x=XCOORD y=YCOORD) {mv = h.createMovement ($g, $x, $y);}
 	;
 
 
-gcommcoordnoint returns [String mw]
+gCommCoordNoInt returns [String mw]
 	:	g=GCODESINT (x=XCOORD y=YCOORD) {mw = h.createMovement ($g, $x, $y);}
 	;
 	
-gcommcoordint returns [String mx]
+gCommCoordInt returns [String mx]
 	:	g=GCODESINTCIRC (x=XCOORD y=YCOORD) (i=ICOORD j=JCOORD) {mx = h.createMovement($g,$x,$y,$i,$j);}
 	;
 	
 //Lexer definition
-/*gcomm
-	:	'G' GCODES;
-*/
 GCODESCOORD
 	:	'G' ('90'|'91')
 	;
