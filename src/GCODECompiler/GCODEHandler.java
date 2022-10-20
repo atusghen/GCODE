@@ -28,7 +28,7 @@ public class GCODEHandler {
 	public static final int CIRCLE_NOT_CONNECTING = 21;
 	public static final int LAST_WARNING = 30;
 
-	List<String> errorList;
+	static List<String> errorList;
 	TokenStream lexerStream;
 
 	public GCODEHandler (TokenStream ls) {
@@ -37,7 +37,7 @@ public class GCODEHandler {
 		lexerStream = ls;
 	}
 
-	public List<String> getErrorList() {
+	public static List<String> getErrorList() {
 		return errorList;
 	}
 	
@@ -48,18 +48,24 @@ public class GCODEHandler {
 		if (e.token.getType() >=0)
 			type = tokenNames[e.token.getType()]; 
 		if (e.token.getType() == GCODELexer.SCAN_ERROR)
-			st = "Lexical Error " + TOKEN_ERROR + " at ";
+			st = "Errore lessicale " + TOKEN_ERROR + " a ";
 		else
-			st = "Syntax Error " + ERR_ON_SYNTAX + " at ";
+			st = "Errore sintattico " + ERR_ON_SYNTAX + " a ";
 		st +=	"[" + e.token.getLine() + ", " + (e.token.getCharPositionInLine()+1) + "]: " + 
-				"Found ";
+				"rilevato ";
 		st += type;
 		
+		//System.out.println(m);
+		//System.out.println(m.substring(m.indexOf("expecting") + 10 , m.length()));
+		
+		m = " è stato rilevato '" + e.token.getText() + "' invece del comando " + m.substring(m.indexOf("expecting") + 10 , m.length()) + ".";
 
 		if (e instanceof MissingTokenException)
 		   st = st + m;		
 		else /*if(e.token.getType() == MISSING_CHAR)*/
 			st += " ('" + e.token.getText() + "')" + m;
+		
+		//Interfaccia.setData(st + "\n");
 		errorList.add(st);
 		
 	}
@@ -97,9 +103,19 @@ public class GCODEHandler {
 
 		if (code == TOKEN_ERROR)
 			st += "Unrecognized token '" + tk.getText() + "'";
-							
-		errorList.add(st); 
-		System.out.println(st);
+		
+		
+		
+		if(!errorList.contains(st)) {
+			//System.out.println("questo è il comp che cicla: " + s  + " questo è quello da aggiungere: " + st);
+			Interfaccia.setData(st + "\n\n");
+			errorList.add(st);
+		}
+		
+		
+		
+		//System.out.println(st);
+	
 	}
 
 //utilizzato per creare movimenti e tagli G00 G01
@@ -179,9 +195,10 @@ public class GCODEHandler {
 			data = "";
 			System.out.print(config+"	");
 			System.out.println(recognizeExit(config));
-			data = config+ "	" + recognizeExit(config) + "\n";
+			data = config + "	" + recognizeExit(config) + "\n";
 			Interfaccia.setData(data);
 		}
+		Interfaccia.setData("\n");
 		System.out.println();
 	}
 	

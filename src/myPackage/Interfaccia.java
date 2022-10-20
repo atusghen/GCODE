@@ -162,6 +162,7 @@ public class Interfaccia extends JPanel {
         
         mainpanel.setLayout(new GridBagLayout());
         /*GridBagConstraints*/ gbc = new GridBagConstraints();
+        gbc.insets  = new Insets(10, 10, 10, 10);
 
      	// Row 0 - Filename
      		// Col 0

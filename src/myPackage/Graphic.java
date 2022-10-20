@@ -95,6 +95,15 @@ public class Graphic extends JPanel {
 				float startAngle = (float) (180/Math.PI*Math.atan2(y1-y0, x1-x0));
 				float endAngle = (float) (180/Math.PI*Math.atan2(y2-y0, x2-x0));
 				
+				float endDist = (float)Math.sqrt((x2-x0)*(x2-x0) + (y2-y0)*(y2-y0));
+				float startDist = (float)Math.sqrt((x1-x0)*(x1-x0) + (y1-y0)*(y1-y0));
+				
+				if(endDist != startDist) {
+					//System.out.println("Il comando -> " + com + " non può collegare il punto: " + x1 + ";" + (500 - y1) + " con il punto " + x2 + ";" + (500 - y2) +".");
+					String assad ="Il comando -> " + com + " non può collegare il punto: " + x1 + ";" + (500 - y1) + " con il punto " + x2 + ";" + (500 - y2) +".";
+					ParserLauncher.getParser().getHandler().myErrorHandler(21, assad);
+				}
+				
 				//System.out.println(x0 + " " + y0 + " " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + r + " " + x + " " + y + " " + width + " " + height + " " + startAngle + " " + endAngle);
 				if(startAngle - endAngle > 0)
 					g.drawArc((int)x, (int)y, (int)width, (int)height, (int)(360.0 - startAngle), (int)(startAngle - endAngle));

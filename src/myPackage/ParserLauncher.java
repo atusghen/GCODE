@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 
 import org.antlr.runtime.RecognitionException;
 
+import GCODECompiler.GCODEHandler;
 import GCODECompiler.GCODEParser;
 
 public class ParserLauncher {
@@ -38,14 +39,29 @@ public class ParserLauncher {
 				System.out.println ("Errori rilevati");
 				for (String msg : parser.getErrorList())
 					System.out.println (++i + " - " + msg);
+				
+				/*int j = 0;
+				for(String d:GCODEHandler.getErrorList()) {
+					System.out.println(++j + d);
+					//Interfaccia.setData(d + "\n");
+		        }*/
 //questo dovrebbe andare alla fine del disegno visto che il programma genera i warning durante la pittura
 //perchè qui stampa solo gli errori al momento della fine del parsing
-				parser.getErrorList().forEach(error -> {
+				//parser.getErrorList().forEach(error -> {
+				/*GCODEHandler.getErrorList().forEach(error -> {
 					int j=0;
+					System.out.println (++j + " strano " + error);
 					Interfaccia.setData("\n"+ ++j + " - "+error.toString());
 					});
 				
-				}	
+				}*/
+				
+				int j = 0;
+				Interfaccia.setData("Lista di errori e warning rilevati:\n");
+				for(String s:GCODEHandler.getErrorList()) {
+					Interfaccia.setData(s + "\n\n");
+				}
+			}
 	}
 	
 	public static void main (String[] args) throws FileNotFoundException, IOException, RecognitionException {		
