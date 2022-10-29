@@ -30,6 +30,7 @@ public class GCODEHandler {
 
 	static List<String> errorList;
 	TokenStream lexerStream;
+	public static boolean mode = false;
 
 	public GCODEHandler (TokenStream ls) {
 		System.out.println ("Handler Inizializzato");
@@ -213,8 +214,10 @@ public class GCODEHandler {
 	private String recognizeConfig(String c) {
 		switch(c) {
 			case "G90":
+				mode = false;
 				return "Selezionate coordinate assolute";
 			case "G91":
+				mode = true;
 				return "Selezionate coordinate relative";
 			case "M00":
 				return "M00";
