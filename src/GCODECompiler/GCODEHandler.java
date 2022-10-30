@@ -291,7 +291,7 @@ public class GCODEHandler {
 			case "G02":
 				res.append("Taglio circolare orario "); 
 				res.append("a punto "+prop[1]+" "+prop[2]);
-				res.append("di centro "+prop[3]+" "+prop[4]);
+				res.append(" di centro "+prop[3]+" "+prop[4]);
 				break;
 			case "G03":
 				res.append("Taglio circolare antiorario "); 
