@@ -15,3 +15,8 @@ Tecnologie utilizzate
 * Java (e Swing)
 * Eclipse
 
+Utilizzo
+* è necessario installare sul proprio device una versione di JDK o JRE. L'app è stata persata per lavorare con Java 15
+* Avviato l'eseguibile jar, verrà richiesto un file di input per avviare il riconoscimento. Selezionare il file che si desidera
+* Infine verranno mostrati sulla dashboard i risultati del riconoscimento con gli eventuali errori trovati
+
