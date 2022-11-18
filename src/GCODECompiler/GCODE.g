@@ -86,11 +86,11 @@ config returns [List<String> list]
 	:	a=GCODESCOORD	{h.addTokenToStringList(list,$a);}
 		b=TCODES 	{h.addTokenToStringList(list,$b);}
 		c=MCODES 	{h.addTokenToStringList(list,$c);}
-		(	a1=GCODESF	{h.addTokenToStringList(list,$a1);}
-			b1=GCODESS	{h.addTokenToStringList(list,$b1);}
-			c1=FCODES	{h.addTokenToStringList(list,$c1);}
-			d1=SCODES	{h.addTokenToStringList(list,$d1);}
-			)?
+			a1=GCODESF?	{h.addTokenToStringList(list,$a1);}
+			b1=GCODESS?	{h.addTokenToStringList(list,$b1);}
+			c1=FCODES?	{h.addTokenToStringList(list,$c1);}
+			d1=SCODES?	{h.addTokenToStringList(list,$d1);}
+			
 		d=mConfig 	{h.addListToStringList(list,d);}
 	;
 

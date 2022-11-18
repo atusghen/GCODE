@@ -12,7 +12,6 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenStream;
 
-//import myPackage.Interfaccia;
 ;
 
 public class GCODEHandler {
